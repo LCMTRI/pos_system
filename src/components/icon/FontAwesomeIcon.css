@@ -1,0 +1,13 @@
+.icon-container {
+    width: 4em;
+    height: 5em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 4em;
+    position: relative;
+}
+.category-icon {
+    color: black;
+    font-size: x-large;
+
+}
