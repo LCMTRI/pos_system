@@ -1,13 +1,13 @@
 
 import './App.css';
-import Card from './components/card/Card'
-import FAIcon from './components/icon/FontAwesomeIcon';
+//import Card from './components/card/Card'
+import FoodCard from './components/foodCard/FoodCard';
+//import FAIcon from './components/icon/FontAwesomeIcon';
 
 function App() {
     return (
         <div className="App">
-            <Card name="Drinks" amount="5" backgroundColor="yellow" icon={<FAIcon name={"fa fa-beer"}></FAIcon>}/>
-            <Card name="Drinks" amount="5" backgroundColor="violet" icon={<FAIcon name={"fa fa-beer"}></FAIcon>}/>
+            <FoodCard name="Drinks" price="15.5" from="Orders" to="Kitchen"/>
         </div>
     );
 }

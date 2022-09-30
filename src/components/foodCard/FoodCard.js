@@ -1,22 +1,17 @@
 import { useState } from "react";
-
+import "./FoodCard.css"
 function FoodCard({name, price, from, to}) {
 
-    const [num, setNum] = useState(0)
+    var [num, setNum] = useState(0)
 
-    const styles = {
-        background: {
-            backgroundColor: backgroundColor,
-        },
-    };
+
 
 
 
   return (
     <div className='card-container' >
-        <div className='card-body' style={styles.background}> 
-            <div></div>
-            <div>
+        <div className='card-body'> 
+            <div className="process">
                 <span>{from}</span>
                 <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
                 <span>{to}</span>
@@ -27,12 +22,13 @@ function FoodCard({name, price, from, to}) {
             <div className='food-price'>
                 <span>${price}</span>
             </div>
-            <div>
-                <button><i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => setNum(++num)}></i></button>
+            <div className="food-num">
+                <i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => setNum(++num)}></i>
                 <span>{num}</span>
-                <button><i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => setNum(--num)}></i></button>
+                <i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => setNum(--num)}></i>
             </div>
         </div>
+         
     </div>
   )
 }
