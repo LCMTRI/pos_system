@@ -1,4 +1,5 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import './Navbar.css';
 
 export default function Navbar() {
   return (
@@ -7,8 +8,10 @@ export default function Navbar() {
         POS System
       </Link>
       <ul>
-        <CustomLink to="/product">Product</CustomLink>
-        <CustomLink to="/about">About</CustomLink>
+        <CustomLink to="/menu">Menu</CustomLink>
+        <CustomLink to="/table">Table</CustomLink>
+        <CustomLink to="/dashboard">Dashboard</CustomLink>
+        <CustomLink to="/employee">Employee</CustomLink>
       </ul>
     </div>
   )
