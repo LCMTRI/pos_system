@@ -8,9 +8,6 @@ function Card({name, amount, backgroundColor, icon}) {
             backgroundColor: backgroundColor,
         },
     };
-
-
-
   return (
     <div className='card-container' >
         <div className='card-body' style={styles.background}> 

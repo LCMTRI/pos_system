@@ -9,5 +9,6 @@
 .category-icon {
     color: black;
     font-size: x-large;
-
+    position: relative;
+    top: calc(50% - 10px);
 }

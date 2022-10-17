@@ -1,22 +1,29 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import './FoodCard.css'
 
 function FoodCard({name, price, from, to}) {
 
-    const [num, setNum] = useState(0)
+    var [num, setNum] = useState(0)
+    const bodyRef = useRef(null)
 
-    const styles = {
-        background: {
-            backgroundColor: backgroundColor,
-        },
-    };
 
+    useEffect(() => {
+        if (num > 0 && !bodyRef.current.classList.contains("transform-background")) {
+            bodyRef.current.classList.toggle("transform-background")
+            bodyRef.current.classList.toggle("transform-text-and-icon")
+        } else if (num <= 0 && bodyRef.current.classList.contains("transform-background"))  {
+            bodyRef.current.classList.toggle("transform-background")
+            bodyRef.current.classList.toggle("transform-text-and-icon")
+        }
+    }, [num])
 
 
   return (
-    <div className='card-container' >
-        <div className='card-body' style={styles.background}> 
-            <div></div>
-            <div>
+    <div className='foodcard-container' >
+        
+        <div className='foodcard-body' ref={bodyRef}> 
+            
+            <div className="process">
                 <span>{from}</span>
                 <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
                 <span>{to}</span>
@@ -27,11 +34,12 @@ function FoodCard({name, price, from, to}) {
             <div className='food-price'>
                 <span>${price}</span>
             </div>
-            <div>
-                <button><i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => setNum(++num)}></i></button>
+            <div className="food-num">
+                <i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => setNum(++num)}></i>
                 <span>{num}</span>
-                <button><i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => setNum(--num)}></i></button>
+                <i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => setNum(--num)}></i>
             </div>
+            
         </div>
     </div>
   )
