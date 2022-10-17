@@ -5,12 +5,12 @@ export default function Navbar() {
   return (
     <div className="nav">
       <Link to="/" className="site-title">
-        POS System
+        CosyPOS
       </Link>
       <br></br><br></br>
       <ul>
         <CustomLink to="/menu">Menu</CustomLink>
-        <CustomLink to="/table">Table</CustomLink>
+        <CustomLink to="/reservation">Reservation</CustomLink>
         <CustomLink to="/dashboard">Dashboard</CustomLink>
         <CustomLink to="/employee">Employee</CustomLink>
       </ul>
