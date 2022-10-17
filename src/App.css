@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -6,11 +8,22 @@ html,
 body {
   margin: 0;
   height: 100vh;
-
+  font-family: 'Inter', sans-serif;
+  background-color: #111315;
+  color: white;
 }
 
 #root {
   height: 100%;
   display: flex;
   overflow: auto;
+}
+
+.mid-container {
+  width: 57%;
+  background-color: #111315;
+}
+
+.right-container {
+  flex: 1;
 }
