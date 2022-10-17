@@ -11,12 +11,19 @@ const Table = () => {
                 <p class="tablebox" id="rcorners4">4</p>
                 <p class="tablebox" id="rcorners5">5</p>
             </div>
-            <div id="rightbank">
+            <div id="centerbank">
                 <p class="tablebox" id="rcorners6">6</p>
                 <p class="tablebox" id="rcorners7">7</p>
                 <p class="tablebox" id="rcorners8">8</p>
                 <p class="tablebox" id="rcorners9">9</p>
                 <p class="tablebox" id="rcorners10">10</p>
+            </div>
+            <div id="rightbank">
+                <p class="tablebox" id="rcorners6">11</p>
+                <p class="tablebox" id="rcorners7">12</p>
+                <p class="tablebox" id="rcorners8">13</p>
+                <p class="tablebox" id="rcorners9">14</p>
+                <p class="tablebox" id="rcorners10">15</p>
             </div>
         </div>
     );
