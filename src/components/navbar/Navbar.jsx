@@ -7,6 +7,7 @@ export default function Navbar() {
       <Link to="/" className="site-title">
         POS System
       </Link>
+      <br></br><br></br>
       <ul>
         <CustomLink to="/menu">Menu</CustomLink>
         <CustomLink to="/table">Table</CustomLink>
