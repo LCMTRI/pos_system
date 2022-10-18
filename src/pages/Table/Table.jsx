@@ -35,6 +35,12 @@ const Table = () => {
                 <br></br><br></br><br></br><br></br>
                 <center><big id="tablestate"></big></center>
                 <br></br><br></br><br></br><br></br>
+                
+                <center>
+                <div id="tableslider"><InputNumber min={1} max={4} /></div>
+                </center>
+
+                <br></br><br></br><br></br><br></br>
                 <center><input type="button" value="Xếp khách" onClick={usetable} id="intbl"/></center>
                 <br></br><br></br>
                 <center><input type="button" value="Dọn bàn" onClick={cleartable} id="clrtbl"/></center>
@@ -46,8 +52,11 @@ const Table = () => {
 
 var tablenum;
 var cusnum;
+var currentcus = 1;
 
 const tableclick = e => {
+    currentcus = 1;
+
     document.getElementById("control").style.display = "initial";
 
     tablenum = e.target.getAttribute("data-no");
@@ -60,6 +69,8 @@ const tableclick = e => {
         document.getElementById("clrtbl").disabled = true;
         document.getElementById("intbl").style.display = "initial";
         document.getElementById("intbl").disabled = false;
+        document.getElementById("tableslider").style.display = "initial";
+        document.getElementById("tableslider").disabled = false;
     }
     else {
         document.getElementById("tablestate").innerHTML = "Bàn đang có khách";
@@ -67,6 +78,8 @@ const tableclick = e => {
         document.getElementById("intbl").display = true;
         document.getElementById("clrtbl").style.display = "initial";
         document.getElementById("clrtbl").disabled = false;
+        document.getElementById("tableslider").style.display = "none";
+        document.getElementById("tableslider").disabled = true;
     }
 }
 
@@ -74,20 +87,69 @@ const usetable = () => {
     document.getElementById("control").style.display = "none";
     document.getElementById("intbl").style.display = "none";
     document.getElementById("clrtbl").style.display = "none";
+    document.getElementById("tableslider").style.display = "none";
 
     var element = document.querySelector('[data-no = "' + tablenum + '"]')
     element.setAttribute("data-state", "1"); 
     document.querySelector('[data-no = "' + tablenum + '"]').style.background = '#E26868'; 
+
+    document.querySelector('[data-no = "' + tablenum + '"]').innerHTML = currentcus + "/10";
 }
 
 const cleartable = () => {
     document.getElementById("control").style.display = "none";
     document.getElementById("intbl").style.display = "none";
     document.getElementById("clrtbl").style.display = "none";
+    document.getElementById("tableslider").style.display = "none";
 
     var element = document.querySelector('[data-no = "' + tablenum + '"]')
     element.setAttribute("data-state", "0"); 
     document.querySelector('[data-no = "' + tablenum + '"]').style.background = 'rgba(0, 0, 0, 0)';
+
+    document.querySelector('[data-no = "' + tablenum + '"]').innerHTML = tablenum;
 }
+
+class InputNumber extends React.Component {
+    state = {
+      value: 1,
+    }
+  
+    constructor() {
+      super();
+      this.increment = this.increment.bind(this);
+      this.decrement = this.decrement.bind(this);
+    }
+    
+    get value() {
+      return this.state.value;
+    }
+  
+    increment() {
+      const { max } = this.props;
+      if (typeof max === 'number' && this.value >= max) return;
+      this.setState({ value: this.value + 1 });
+
+      currentcus = this.value + 1;
+    }
+  
+    decrement() {
+      const { min } = this.props;
+      if (typeof min === 'number' && this.value <= min) return;
+      this.setState({ value: this.value - 1 });
+
+      currentcus = this.value - 1;
+    }
+    
+    render() {
+      return (
+        <div className="input-number" style={this.props.style}>
+          <button type="button" onClick={this.decrement}>&minus;</button>
+          <span>{this.value}</span>
+          <button type="button" onClick={this.increment}>&#43;</button>     
+        </div>
+      )
+    }
+  }
+
 
 export default Table;
