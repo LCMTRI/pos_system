@@ -7,7 +7,6 @@ export default function Navbar() {
       <Link to="/" className="site-title">
         CosyPOS
       </Link>
-      <br></br><br></br>
       <ul>
         <CustomLink to="/menu">Menu</CustomLink>
         <CustomLink to="/reservation">Reservation</CustomLink>
