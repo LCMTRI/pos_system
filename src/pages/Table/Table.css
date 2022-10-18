@@ -1,9 +1,21 @@
+body {
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#table {
+    column-count: 2;
+    display: flex;
+    height: 100vh;
+    justify-content: flex-start;
+}
+
 #maintable {
-    padding: 10px 70px 10px 20px;
+    padding: 10px 100px 10px 20px;
     column-count: 3;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.743);
-    height: 100vh;
+    background-color: #555;
+    height: 100%;
 }
 
 #leftbank {
@@ -41,4 +53,34 @@
     /* Safari 3-8 */
     transform: scale(1.1);
     transition: all .2s ease-in-out;
+}
+
+#rightpanel {
+    background-color: #333;
+    height: 100%;
+    width: 550px;
+    color: white;
+}
+
+input[type="button"] {
+    background-color: #737373;
+    color: white;
+    width: 200px;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    font-size: medium;
+}
+
+input[type="button"]:hover {
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari 3-8 */
+    transform: scale(1.1);
+    transition: all .2s ease-in-out;
+}
+
+#control {
+    display: none;
 }
