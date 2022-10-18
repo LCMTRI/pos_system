@@ -93,7 +93,7 @@ const usetable = () => {
     element.setAttribute("data-state", "1"); 
     document.querySelector('[data-no = "' + tablenum + '"]').style.background = '#E26868'; 
 
-    document.querySelector('[data-no = "' + tablenum + '"]').innerHTML = currentcus + "/10";
+    document.querySelector('[data-no = "' + tablenum + '"]').innerHTML = currentcus + "/4";
 }
 
 const cleartable = () => {
