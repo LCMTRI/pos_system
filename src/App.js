@@ -7,9 +7,10 @@ import Menu from './pages/Menu/Menu';
 import Reservation from './pages/Reservation/Reservation';
 import Dashboard from './pages/Dashboard/Dashboard'
 import Employee from './pages/Employee/Employee';
+import Menuside from './pages/Menu/Menuside';
 
 const App = () => {
-  
+
   return (
     <>
       <Navbar />
@@ -23,9 +24,16 @@ const App = () => {
         </Routes>
       </div>
       <div className="right-container">
-        <h1>Side-section</h1>
-        <br />
-        <h3>In progress...</h3>
+        <Routes>
+          <Route path="/menu" element={<Menuside />} />
+          <Route path="/*" element={
+            <>
+              <h1>Side-section</h1>
+              <br />
+              <h3>In progress...</h3>
+            </>
+          } />
+        </Routes>
       </div>
     </>
   );

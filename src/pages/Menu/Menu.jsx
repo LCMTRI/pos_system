@@ -1,27 +1,13 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Card from "../../components/card/Card";
 import Foodcard from "../../components/foodCard/FoodCard";
 import FAIcom from "../../components/icon/FontAwesomeIcon";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBeerMugEmpty } from '@fortawesome/free-solid-svg-icons'
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 const Menu = () => {
   return (
-    <div>
-      {/* <Card name="Haha xerath go boom boom" amount={10} backgroundColor="#cfdddb" icon={<FAIcom name='fa fa-beer'></FAIcom>} />
-            <Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" /> */}
+    <div className="menu-con">
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={0.5}>
           <Grid item xs={3}>
