@@ -9,7 +9,7 @@ const Menuside = () => {
             <ul>
                 <li><ItemCard message={"lmao toi o dau?"} num={1} /></li>
                 <li><ItemCard message={"ko biet nua..."} num={2} /></li>
-                <li><ItemCard message={"thoi thoi ong cut me ong di ong dung n"} num={3} /></li>
+                <li><ItemCard message={"thoi thoi ong cut me ong di"} num={3} /></li>
                 <li><ItemCard message={"oke ck nha~"} num={4} /></li>
             </ul>
         </div>

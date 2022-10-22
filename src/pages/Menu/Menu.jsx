@@ -81,7 +81,7 @@ const Menu = () => {
           background: '#2B2D2E',
           color: '#2B2D2E',
           borderColor: '#2B2D2E',
-          height: '3px',
+          height: '1.5px',
         }}
       />
       <Box sx={{ flexGrow: 1 }}>
@@ -108,7 +108,7 @@ const Menu = () => {
           <Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
           </Grid>
           <Grid item xs={3}>
-          <Foodcard name="Red caviar" price={420} from="Orders" to="Kitchen" />
+          <Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
           </Grid>
         </Grid>
       </Box>

@@ -3,17 +3,18 @@
     float: left;
     z-index: 1;
     width: 100%;
-    height: 13.5rem;
+    height: 10.5rem;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .foodcard-body {
     position: relative;
     z-index: 3;
-    width: 100%;
-    height: 100%;
+    width: 97%;
+    height: 97%;
     border-radius: 10px;
     margin: auto;
     background-color: rgb(236, 189, 236); /* linear-gradient(to right, rgb(236, 189, 236) 60%, rgb(236, 189, 236) 60%); */
@@ -92,11 +93,11 @@
 .process {
     z-index: 4;
     display: flex;
-    font-size: 1rem;
+    font-size: small;
     align-items: center;
     justify-items: center;
-    margin-left: 1.5em;
-    padding-top: 0.5rem;
+    margin-left: 1em;
+    padding-top: 1em;
 }
 
 .process>i {
@@ -107,58 +108,59 @@
 
 .food-name {
     z-index: 4;
-    margin-left: 1.5rem;
+    margin-left: 1em;
     width: 100%;
-    height: 25%;
+    height: 30%;
     display: flex;
     align-items: flex-end;
-    margin-bottom: 0.4rem;
+
 }
 
 .food-name>span {
     float: left;
-    font-size: 1.38rem;
-    font-weight: 600;
+    font-size: larger;
+    font-weight: 500;
+
 }
 
 .food-price {
     z-index: 4;
-    margin-left: 1.5rem;
-    margin-bottom: 27%;
+    margin-left: 1em;
     width: 100%;
 }
 
 .food-price>span {
     float: left;
     color: #807f7f;
-    font-size: 1.2rem;
-    font-weight: 550;
+    font-weight: 500;
 }
 
 .food-num {
     z-index: 4;
-    height: fit-content;
-    width: 97%;
+    height: 30%;
+    width: 90%;
     align-items: flex-end;
     display: flex;
     flex-direction: row-reverse;
     text-align: center;
+
 }
 
-/* .food-num>span,
+.food-num>span,
 i {
     float: right;
-} */
+}
 
 .food-num>span {
     width: 1em;
-    margin-bottom: 4%;
-    font-size: 1.7rem;
+    margin-bottom: 3%;
+    font-size: larger;
     font-weight: 500;
+
 }
 
 
 .food-num>i {
-    font-size: 3rem;
-    padding: 0 0.3em;
+    font-size: xx-large;
+    padding: 0 0.2em;
 }

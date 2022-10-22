@@ -22,11 +22,11 @@ body {
 .mid-container {
   width: 57%;
   background-color: #111315;
-  padding: 2rem 0.5rem;
+  padding: 1rem 0.5rem;
 }
 
 .right-container {
   flex: 1;
   overflow: hidden;
-  padding: 2rem 1rem;
+  padding: 1rem;
 }
