@@ -25,14 +25,14 @@ const ItemCard = ({ num, message }) => {
       {visible && (
         <div className="item-container">
           <div className="underlay" onClick={removeElement}>
-            <FontAwesomeIcon icon={faTrash} color="#E04A48" />
+            <FontAwesomeIcon icon={faTrash} color="#E04A48" size="lg"/>
           </div>
           <div
             class="overlay"
             onClick={toggle}
             style={
               state
-                ? { transform: "translate(51px, 0%)" }
+                ? { transform: "translate(68px, 0%)" }
                 : { transform: "translate(0%, 0%)" }
             }
           >
@@ -46,5 +46,3 @@ const ItemCard = ({ num, message }) => {
 };
 
 export default ItemCard;
-
-// style={ "transform: translate(40%, 0%)" : "transform: translate(0%, 0%)"}
