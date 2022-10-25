@@ -249,7 +249,7 @@ class InputNumber extends React.Component {
         <br></br><br></br>
         <input type="button" value="Dọn bàn" onClick={this.cleartable} id="clrtbl" />
         <br></br><br></br><br></br>
-        <input type="button" value="Hủy" onClick={this.cancel} id="cancelbutton" />
+        <input type="button" value="Trở lại" onClick={this.cancel} id="cancelbutton" />
       </div>
     )
   }

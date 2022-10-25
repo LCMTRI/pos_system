@@ -6,6 +6,7 @@
     align-self: flex-start;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 .container {
@@ -27,7 +28,8 @@
     padding-left: 0;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    font-size: 2rem;
+    font-size: 35px;
+    font-weight: bold;
     padding: 0;
     margin-inline: auto;
     text-align: center;
