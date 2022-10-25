@@ -91,7 +91,8 @@ const tableclick = e => {
   var starttime = e.target.getAttribute("data-time");
 
   document.getElementById("maintable").style.pointerEvents = "none";
-  document.getElementById("overlay").style.display = "block";
+  document.getElementById("overlay").style.width = "100%";
+  document.getElementById("rightpanel").style.width = "520px";
 
   currentcus = 1;
 
@@ -179,7 +180,8 @@ class InputNumber extends React.Component {
   cancel() {
     this.setState({ value: 1 });
     document.getElementById("maintable").style.pointerEvents = "all";
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlay").style.width = "0%";
+    document.getElementById("rightpanel").style.width = "0px";
 
     loopv = 1;
   }
@@ -195,7 +197,8 @@ class InputNumber extends React.Component {
     document.getElementById("clrtbl").style.display = "none";
 
     document.getElementById("maintable").style.pointerEvents = "all";
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlay").style.width = "0%";
+    document.getElementById("rightpanel").style.width = "0px";
 
     var nelement2 = document.querySelector('[data-no = "' + tablenum + '"]')
     nelement2.setAttribute("data-state", currentcus);
@@ -218,7 +221,8 @@ class InputNumber extends React.Component {
     document.getElementById("clrtbl").style.display = "none";
 
     document.getElementById("maintable").style.pointerEvents = "all";
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlay").style.width = "0%";
+    document.getElementById("rightpanel").style.width = "0px";
 
     var nelement2 = document.querySelector('[data-no = "' + tablenum + '"]')
     nelement2.setAttribute("data-state", "0");

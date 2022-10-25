@@ -145,10 +145,12 @@ body {
 #rightpanel {
     background-color: #333;
     height: 100%;
-    width: 520px;
+    width: 0px;
     color: white;
     position: fixed;
     right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
 input[type="button"] {
@@ -229,10 +231,10 @@ input[type="button"]:hover {
 #overlay {
     position: fixed;
     /* Sit on top of the page content */
-    display: none;
     /* Hidden by default */
     /* Full width (cover the whole page) */
     height: 100%;
+    width: 0%;
     /* Full height (cover the whole page) */
     top: 0;
     left: 0;
@@ -241,4 +243,6 @@ input[type="button"]:hover {
     background-color: rgba(0, 0, 0, 0.5);
     /* Black background with opacity */
     z-index: 2;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
