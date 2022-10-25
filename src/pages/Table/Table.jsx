@@ -64,9 +64,9 @@ const Table = () => {
       <div id="overlay">
         <div id="rightpanel">
           <div id="control">
-            <br></br><br></br>
-            <center><h1 id="tablenumbox"></h1></center>
             <br></br><br></br><br></br><br></br>
+            <center><big id="tablenumbox"></big></center>
+            <br></br><br></br><br></br><br></br><br></br>
             <center><big id="tablestate"></big></center>
             <br></br>
             <center><big id="tabletime"></big></center>
@@ -83,14 +83,12 @@ const Table = () => {
 var tablenum;
 var cusnum;
 var currentcus = 1;
+var loopv = 0;
 
 const tableclick = e => {
-  var d = new Date();
-  var currentdate = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+  loopv = 0;
 
   var starttime = e.target.getAttribute("data-time");
-
-  var custime = diff(starttime, currentdate);
 
   document.getElementById("maintable").style.pointerEvents = "none";
   document.getElementById("overlay").style.display = "block";
@@ -103,7 +101,7 @@ const tableclick = e => {
   document.getElementById("tablenumbox").innerHTML = "Bàn số " + tablenum;
 
   cusnum = e.target.getAttribute("data-state");
-  if (cusnum == 0) {
+  if (cusnum === "0") {
     document.getElementById("tablestate").innerHTML = "Bàn đang trống";
     document.getElementById("tabletime").style.display = "none";
     document.getElementById("clrtbl").style.display = "none";
@@ -111,8 +109,9 @@ const tableclick = e => {
     document.getElementById("islider").style.display = "block";
   }
   else {
+    startTimeCounter(starttime);
+
     document.getElementById("tablestate").innerHTML = "Bàn đang có khách";
-    document.getElementById("tabletime").innerHTML = "Thời gian khách đã ngồi: " + custime;
     document.getElementById("tabletime").style.display = "initial";
     document.getElementById("intbl").style.display = "none";
     document.getElementById("clrtbl").style.display = "initial";
@@ -120,19 +119,27 @@ const tableclick = e => {
   }
 }
 
-function diff(start, end) {
-  start = start.split(":");
-  end = end.split(":");
-  var startDate = new Date(0, 0, 0, start[0], start[1], start[2]);
-  var endDate = new Date(0, 0, 0, end[0], end[1], end[2]);
-  var diff = endDate.getTime() - startDate.getTime();
-  var hours = Math.floor(diff / 1000 / 60 / 60);
-  diff -= hours * 1000 * 60 * 60;
-  var minutes = Math.floor(diff / 1000 / 60);
-  diff -= minutes * 1000 * 60;
-  var seconds = Math.floor(diff / 1000);
 
-  return (hours < 9 ? "0" : "") + hours + ":" + (minutes < 9 ? "0" : "") + minutes + ":" + (seconds < 9 ? "0" : "") + seconds;
+async function startTimeCounter(startTime) {
+  while (loopv < 1) {
+    var now = Math.floor(Date.now() / 1000); // get the time now
+
+    var diff = now - startTime; // diff in seconds between now and start
+
+    var h = Math.floor(diff / 3600); // get hours value (quotient of diff)
+    var m = Math.floor(diff / 60); // get minutes value (quotient of diff)
+    var s = Math.floor(diff % 60); // get seconds value (remainder of diff)
+    h = checkTime(h);
+    m = checkTime(m); // add a leading zero if it's single digit
+    s = checkTime(s); // add a leading zero if it's single digit
+    document.getElementById("tabletime").innerHTML = "Thời gian khách đã ngồi: " + h + ":" + m + ":" + s; // update the element where the timer will appear
+    await new Promise(r => setTimeout(r, 100));
+  }
+}
+
+function checkTime(i) {
+  if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+  return i;
 }
 
 class InputNumber extends React.Component {
@@ -173,11 +180,12 @@ class InputNumber extends React.Component {
     this.setState({ value: 1 });
     document.getElementById("maintable").style.pointerEvents = "all";
     document.getElementById("overlay").style.display = "none";
+
+    loopv = 1;
   }
 
   usetable() {
-    var d = new Date();
-    var currentdate = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    var currentdate = Math.floor(Date.now() / 1000);
 
     var element = document.querySelector('[data-no = "' + tablenum + '"]')
     element.setAttribute("data-time", currentdate);
@@ -189,14 +197,16 @@ class InputNumber extends React.Component {
     document.getElementById("maintable").style.pointerEvents = "all";
     document.getElementById("overlay").style.display = "none";
 
-    var element = document.querySelector('[data-no = "' + tablenum + '"]')
-    element.setAttribute("data-state", currentcus);
+    var nelement2 = document.querySelector('[data-no = "' + tablenum + '"]')
+    nelement2.setAttribute("data-state", currentcus);
     document.querySelector('[data-no = "' + tablenum + '"]').style.background = '#E26868';
 
     var max = document.querySelector('[data-no = "' + tablenum + '"]').getAttribute("data-maxcus");
 
     document.querySelector('[data-no2 = "' + tablenum + '"]').innerHTML = currentcus + "/" + max;
     this.setState({ value: 1 });
+
+    loopv = 1;
   }
 
   cleartable() {
@@ -210,14 +220,16 @@ class InputNumber extends React.Component {
     document.getElementById("maintable").style.pointerEvents = "all";
     document.getElementById("overlay").style.display = "none";
 
-    var element = document.querySelector('[data-no = "' + tablenum + '"]')
-    element.setAttribute("data-state", "0");
+    var nelement2 = document.querySelector('[data-no = "' + tablenum + '"]')
+    nelement2.setAttribute("data-state", "0");
     document.querySelector('[data-no = "' + tablenum + '"]').style.background = 'rgba(0, 0, 0, 0)';
 
     var max = document.querySelector('[data-no = "' + tablenum + '"]').getAttribute("data-maxcus");
 
     document.querySelector('[data-no2 = "' + tablenum + '"]').innerHTML = "0/" + max;
     this.setState({ value: 1 });
+
+    loopv = 1;
   }
 
   render() {

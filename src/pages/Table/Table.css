@@ -10,6 +10,10 @@ body {
     justify-content: flex-start;
 }
 
+#tablenumbox {
+    font-size: 35px;
+}
+
 #maintable {
     padding: 10px 100px 10px 20px;
     column-count: 3;
