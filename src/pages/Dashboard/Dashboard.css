@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.card-number {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.first-card,
+.second-card,
+.third-card {
+    width: 33%;
+    border: 1px solid white;
+    margin: 1% 5%;
+    text-align: center;
+    border-radius: 10%;
+    cursor: pointer;
+    padding: 3% 2%;
+}
+
+.first-card {
+    background-color: rgb(109, 0, 0);
+}
+
+.second-card {
+    background-color: rgb(62, 62, 0);
+}
+
+.third-card {
+    background-color: rgb(0, 58, 0);
+}
+
+.number {
+    font-size: 34px;
+}
+
+.card-chart {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.first-chart, .second-chart {
+    width: 50%;
+    border: 1px solid white;
+    margin: 1% 5%;
+    border-radius: 10%;
+    padding: 3% 2%;
+    background-color: white;
+}
+
+/* .first-chart {
+    
+}
+
+.second-chart {
+
+} */
