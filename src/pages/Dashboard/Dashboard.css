@@ -16,7 +16,7 @@
     border: 1px solid white;
     margin: 1% 5%;
     text-align: center;
-    border-radius: 10%;
+    border-radius: 25px;
     cursor: pointer;
     padding: 3% 2%;
 }
@@ -38,24 +38,40 @@
 }
 
 .card-chart {
+    top: 600px;
     width: 100%;
     height: 100%;
-    display: flex;
+    position: relative;
 }
 
-.first-chart, .second-chart {
-    width: 50%;
+.first-chart, .second-chart, .third-chart, .fourth-chart {
+    position: absolute;
+    min-height: 350px;
+    width: 40%;
     border: 1px solid white;
-    margin: 1% 5%;
-    border-radius: 10%;
-    padding: 3% 2%;
+    margin: 10% 5%;
+    border-radius: 25px;
+    padding: 3% 1%;
     background-color: white;
 }
 
-/* .first-chart {
-    
+
+.first-chart {
+    top: 0;
+    left: 0;
 }
 
 .second-chart {
+    top: 0;
+    right: 0;
+}
 
-} */
+.third-chart {
+    bottom: 0;
+    left: 0;
+}
+
+.fourth-chart {
+    bottom: 0;
+    right: 0;
+}
