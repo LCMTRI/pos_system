@@ -48,15 +48,15 @@ const Table = () => {
         <div id="rightbank">
           <p class="tablebox3" id="rcorners10" onClick={tableclick} data-no="10" data-state="0" data-time="0" data-maxcus="6">
             <p class="tablenum">10</p>
-            <p class="tablestate3" id="tablestate10" data-no2="10">0/4</p>
+            <p class="tablestate3" id="tablestate10" data-no2="10">0/6</p>
           </p>
           <p class="tablebox3" id="rcorners11" onClick={tableclick} data-no="11" data-state="0" data-time="0" data-maxcus="6">
             <p class="tablenum">11</p>
-            <p class="tablestate3" id="tablestate11" data-no2="11">0/4</p>
+            <p class="tablestate3" id="tablestate11" data-no2="11">0/6</p>
           </p>
           <p class="tablebox3" id="rcorners12" onClick={tableclick} data-no="12" data-state="0" data-time="0" data-maxcus="6">
             <p class="tablenum">12</p>
-            <p class="tablestate3" id="tablestate12" data-no2="12">0/4</p>
+            <p class="tablestate3" id="tablestate12" data-no2="12">0/6</p>
           </p>
         </div>
       </div>
