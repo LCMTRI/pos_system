@@ -4,7 +4,7 @@ import "./ItemCard.css";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ItemCard = ({ num, message }) => {
+const ItemCard = ({ num, name, amount }) => {
   let [state, setState] = useState(false);
   const [visible, setVisible] = useState(true);
 
@@ -28,7 +28,7 @@ const ItemCard = ({ num, message }) => {
             <FontAwesomeIcon icon={faTrash} color="#E04A48" />
           </div>
           <div
-            class="overlay"
+            className="overlay"
             onClick={toggle}
             style={
               state
@@ -36,8 +36,17 @@ const ItemCard = ({ num, message }) => {
                 : { transform: "translate(0%, 0%)" }
             }
           >
-            <div className="order">{num}</div>
-            <div className="text">{message}</div>
+            {/* <div className="order">
+              <span>{num}</span>
+            </div> */}
+            <div className="content">
+              <div className="food-name">
+                <span>{name}</span>
+              </div>
+              <div className="amount">
+                <span>x{amount}</span>
+              </div>
+            </div>
           </div>
         </div>
       )}
