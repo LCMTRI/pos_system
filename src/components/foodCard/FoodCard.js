@@ -34,11 +34,7 @@ function FoodCard({name, price, from, to}) {
         <div className="food-num">
             <i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => {setNum(++num)}}></i>
             <span>{num}</span>
-            {
-                num == 0 ? <div></div> : (
-                    <i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => {setNum(--num)}}></i>
-                )
-            }
+            <i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => {num > 0 ? setNum(--num) : console.log("haha")}}></i>
         </div>
     </div>
 </div>

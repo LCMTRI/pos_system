@@ -9,7 +9,7 @@ const Menuside = () => {
             <ul>
                 <li><ItemCard name={"Coffee 1"} num={1} amount={1} /></li>
                 <li><ItemCard name={"Breakfast 4"} num={2} amount={3} /></li>
-                <li><ItemCard name={"Milk tea"} num={3} amount={2} /></li>
+                <li><ItemCard name={"Milk tea 3"} num={3} amount={2} /></li>
             </ul>
         </div>
     );
