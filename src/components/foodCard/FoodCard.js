@@ -1,11 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { OrderContext } from "../../contexts/OrderContext";
 import './FoodCard.css';
 
-function FoodCard({name, price, from, to}) {
+function FoodCard({name, price}) {
     var [num, setNum] = useState(0)
+    
+    const { orderState, orderDispatch } = useContext(OrderContext);
     const bodyRef = useRef(null)
 
     useEffect(() => {
+        
         if (num > 0 && !bodyRef.current.classList.contains("transform-background")) {
             bodyRef.current.classList.toggle("transform-background")
             bodyRef.current.classList.toggle("transform-text-and-icon")
@@ -14,6 +18,33 @@ function FoodCard({name, price, from, to}) {
             bodyRef.current.classList.toggle("transform-text-and-icon")
         }
     }, [num])
+
+    useEffect (() => {
+        if (orderState.data.findIndex(v => v.name === name) === -1)  {
+            num = 0
+            setNum(0)
+        }
+    }, [orderState.data.findIndex(v => v.name === name)])
+     
+
+
+    const handleIns = () => {
+        setNum(++num)
+        if (num === 1) 
+            orderDispatch({type: 'ADD', payload: {name: name, no: num}})
+        else 
+            orderDispatch({type: 'INS', payload: {name: name, no: num}})
+
+    }
+
+    const handleDes = () => {
+        setNum(--num)
+        if (num === 0) 
+            orderDispatch({type: 'DELETE', payload: {name: name}})
+        else 
+            orderDispatch({type: 'DES', payload: {name: name, no: num}})
+    }
+
 
 
   return (
@@ -32,9 +63,9 @@ function FoodCard({name, price, from, to}) {
             <span>{price} VNĐ</span>
         </div>
         <div className="food-num">
-            <i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => {setNum(++num)}}></i>
+            <i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => handleIns()}></i>
             <span>{num}</span>
-            <i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => {num > 0 ? setNum(--num) : console.log("haha")}}></i>
+            <i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => !num || handleDes()}></i>
         </div>
     </div>
 </div>
