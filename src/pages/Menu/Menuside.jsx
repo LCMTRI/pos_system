@@ -1,15 +1,19 @@
-import { React, useState } from 'react';
+import { React, useContext, useEffect, useState } from 'react';
 import './Menuside.css';
 import ItemCard from '../../components/itemCard/ItemCard';
+import { OrderContext } from '../../contexts/OrderContext';
 
 const Menuside = () => {
     const [list, setList] = useState([]);
+    const { orderState, orderDispatch } = useContext(OrderContext);
+    useEffect(() => {
+        setList(orderState.data.map(e => <li><ItemCard name={e.name} num={e.no} amount={e.no} /></li>))
+    },[orderState]);
+
     return (
         <div className="side-container">
             <ul>
-                <li><ItemCard name={"Coffee 1"} num={1} amount={1} /></li>
-                <li><ItemCard name={"Breakfast 4"} num={2} amount={3} /></li>
-                <li><ItemCard name={"Milk tea 3"} num={3} amount={2} /></li>
+                {list}
             </ul>
         </div>
     );

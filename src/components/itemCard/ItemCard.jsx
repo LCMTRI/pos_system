@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import "./ItemCard.css";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { OrderContext } from "../../contexts/OrderContext";
 
 const ItemCard = ({ num, name, amount }) => {
   let [state, setState] = useState(false);
   const [visible, setVisible] = useState(true);
+  const { orderState, orderDispatch } = useContext(OrderContext);
 
   let toggle = () => {
     if (state === true) {
@@ -18,6 +20,7 @@ const ItemCard = ({ num, name, amount }) => {
 
   const removeElement = () => {
     setVisible((prev) => !prev);
+    orderDispatch({type: 'DELETE', payload: {name: name}})
   };
 
   return (
