@@ -20,7 +20,7 @@ function FoodCard({name, price}) {
     }, [num])
 
     useEffect (() => {
-        if (orderState.data.findIndex(v => v.name === name) === -1)  {
+        if (orderState.data.findIndex(v => v.name === name) === -1) {
             num = 0
             setNum(0)
         }
@@ -31,9 +31,9 @@ function FoodCard({name, price}) {
     const handleIns = () => {
         setNum(++num)
         if (num === 1) 
-            orderDispatch({type: 'ADD', payload: {name: name, no: num}})
+            orderDispatch({type: 'ADD', payload: {name: name, no: num, price: price}})
         else 
-            orderDispatch({type: 'INS', payload: {name: name, no: num}})
+            orderDispatch({type: 'INS', payload: {name: name, no: num, price: price}})
 
     }
 
@@ -42,7 +42,7 @@ function FoodCard({name, price}) {
         if (num === 0) 
             orderDispatch({type: 'DELETE', payload: {name: name}})
         else 
-            orderDispatch({type: 'DES', payload: {name: name, no: num}})
+            orderDispatch({type: 'DES', payload: {name: name, no: num, price: price}})
     }
 
 
@@ -60,7 +60,7 @@ function FoodCard({name, price}) {
             <span>{name}</span>
         </div>
         <div className='food-price'>
-            <span>{price} VNĐ</span>
+            <span>{price.toLocaleString()} VNĐ</span>
         </div>
         <div className="food-num">
             <i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => handleIns()}></i>

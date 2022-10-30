@@ -26,6 +26,9 @@ const App = () => {
       <div className="right-container">
         <Routes>
           <Route path="/menu" element={<Menuside />} />
+          <Route path="/dashboard" element={<div></div>} />
+          <Route path="/reservation" element={<div></div>} />
+          <Route path="/" element={<div></div>} />
           <Route path="/*" element={
             <>
               <h1>Side-section</h1>

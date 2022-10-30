@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Card from "../../components/card/Card";
 import Foodcard from "../../components/foodCard/FoodCard";
-import FAIcom from "../../components/icon/FontAwesomeIcon";
+import FAIcon from "../../components/icon/FontAwesomeIcon";
 import { useState } from "react";
 
 const Menu = () => {
@@ -22,36 +22,36 @@ const Menu = () => {
       item: [
         {
           name: "Coffee 1",
-          price: "12.000",
+          price: 12000,
         },
         {
           name: "Coffee 2",
-          price: "12.000",
+          price: 12000,
         },
         {
           name: "Coffee 3",
-          price: "12.000",
+          price: 12000,
         },
         {
           name: "Coffee 4",
-          price: "12.000",
+          price: 12000,
         },
         {
           name: "Coffee 5",
-          price: "12.000",
+          price: 12000,
         },
         {
           name: "Coffee 6",
-          price: "12.000",
+          price: 12000,
         },
         {
           name: "Coffee 7",
-          price: "12.000",
+          price: 12000,
         },
         {
           name: "Coffee 8",
-          price: "12.000",
-        }
+          price: 12000,
+        },
       ],
     },
     {
@@ -61,31 +61,31 @@ const Menu = () => {
       item: [
         {
           name: "Tea 1",
-          price: "23.000",
+          price: 23000,
         },
         {
           name: "Tea 2",
-          price: "23.000",
+          price: 23000,
         },
         {
           name: "Tea 3",
-          price: "23.000",
+          price: 23000,
         },
         {
           name: "Tea 4",
-          price: "23.000",
+          price: 23000,
         },
         {
           name: "Tea 5",
-          price: "23.000",
+          price: 23000,
         },
         {
           name: "Tea 6",
-          price: "23.000",
+          price: 23000,
         },
         {
           name: "Tea 7",
-          price: "23.000",
+          price: 23000,
         }
       ],
     },
@@ -96,35 +96,35 @@ const Menu = () => {
       item: [
         {
           name: "Milk tea 1",
-          price: "20.000",
+          price: 20000,
         },
         {
           name: "Milk tea 2",
-          price: "20.000",
+          price: 20000,
         },
         {
           name: "Milk tea 3",
-          price: "20.000",
+          price: 20000,
         },
         {
           name: "Milk tea 4",
-          price: "20.000",
+          price: 20000,
         },
         {
           name: "Milk tea 5",
-          price: "20.000",
+          price: 20000,
         },
         {
           name: "Milk tea 6",
-          price: "20.000",
+          price: 20000,
         },
         {
           name: "Milk tea 7",
-          price: "20.000",
+          price: 20000,
         },
         {
           name: "Milk tea 8",
-          price: "20.000",
+          price: 20000,
         }
       ],
     },
@@ -135,27 +135,27 @@ const Menu = () => {
       item: [
         {
           name: "Alcohol 1",
-          price: "30.000",
+          price: 30000,
         },
         {
           name: "Alcohol 2",
-          price: "30.000",
+          price: 30000,
         },
         {
           name: "Alcohol 3",
-          price: "30.000",
+          price: 30000,
         },
         {
           name: "Alcohol 4",
-          price: "30.000",
+          price: 30000,
         },
         {
           name: "Alcohol 5",
-          price: "30.000",
+          price: 30000,
         },
         {
           name: "Alcohol 6",
-          price: "30.000",
+          price: 30000,
         }
       ],
     },
@@ -166,35 +166,35 @@ const Menu = () => {
       item: [
         {
           name: "Breakfast 1",
-          price: "24.000",
+          price: 24000,
         },
         {
           name: "Breakfast 2",
-          price: "24.000",
+          price: 24000,
         },
         {
           name: "Breakfast 3",
-          price: "24.000",
+          price: 24000,
         },
         {
           name: "Breakfast 4",
-          price: "24.000",
+          price: 24000,
         },
         {
           name: "Breakfast 5",
-          price: "24.000",
+          price: 24000,
         },
         {
           name: "Breakfast 6",
-          price: "24.000",
+          price: 24000,
         },
         {
           name: "Breakfast 7",
-          price: "24.000",
+          price: 24000,
         },
         {
           name: "Breakfast 8",
-          price: "24.000",
+          price: 24000,
         }
       ],
     },
@@ -205,23 +205,23 @@ const Menu = () => {
       item: [
         {
           name: "Dessert 1",
-          price: "16.000",
+          price: 16000,
         },
         {
           name: "Dessert 2",
-          price: "16.000",
+          price: 16000,
         },
         {
           name: "Dessert 3",
-          price: "16.000",
+          price: 16000,
         },
         {
           name: "Dessert 4",
-          price: "16.000",
+          price: 16000,
         },
         {
           name: "Dessert 5",
-          price: "16.000",
+          price: 16000,
         }
       ],
     },
@@ -232,23 +232,23 @@ const Menu = () => {
       item: [
         {
           name: "Snack 1",
-          price: "10.000",
+          price: 10000,
         },
         {
           name: "Snack 2",
-          price: "10.000",
+          price: 10000,
         },
         {
           name: "Snack 3",
-          price: "10.000",
+          price: 10000,
         },
         {
           name: "Snack 4",
-          price: "10.000",
+          price: 10000,
         },
         {
           name: "Snack 5",
-          price: "10.000",
+          price: 10000,
         }
       ],
     },
@@ -274,14 +274,14 @@ const Menu = () => {
           {categoryData.map((element) => (
               element.name == "" ? <div></div> :(
               <Grid item xs={3}>
-              <Card
-                name={element.name}
-                amount={element.item.length}
-                backgroundColor={element.color}
-                icon={<FAIcom name={element.icon}></FAIcom>}
-                updateState={handle}
-              />
-            </Grid>
+                <Card
+                  name={element.name}
+                  amount={element.item.length}
+                  backgroundColor={element.color}
+                  icon={<FAIcon name={element.icon}></FAIcon>}
+                  updateState={handle}
+                />
+              </Grid>
             )
           ))}
         </Grid>
@@ -311,93 +311,3 @@ const Menu = () => {
 };
 
 export default Menu;
-
-{/* <Grid item xs={3}>
-  <Card
-    name="Coffee"
-    amount={10}
-    backgroundColor="#cfdddb"
-    icon={<FAIcom name="fa fa-beer"></FAIcom>}
-  />
-</Grid>
-<Grid item xs={3}>
-  <Card
-    name="Tea"
-    amount={10}
-    backgroundColor="#e4cdee"
-    icon={<FAIcom name="fa fa-beer"></FAIcom>}
-  />
-</Grid>
-<Grid item xs={3}>
-  <Card
-    name="Milk tea"
-    amount={10}
-    backgroundColor="#c2dbe9"
-    icon={<FAIcom name="fa fa-beer"></FAIcom>}
-  />
-</Grid>
-<Grid item xs={3}>
-  <Card
-    name="Alcohol"
-    amount={10}
-    backgroundColor="#c9caee"
-    icon={<FAIcom name="fa fa-coffee"></FAIcom>}
-  />
-</Grid>
-<Grid item xs={3}>
-  <Card
-    name="Breakfast"
-    amount={10}
-    backgroundColor="#fac2d9"
-    icon={<FAIcom name="fa fa-beer"></FAIcom>}
-  />
-</Grid>
-<Grid item xs={3}>
-  <Card
-    name="Desserts"
-    amount={10}
-    backgroundColor="#e6dade"
-    icon={<FAIcom name="fa fa-beer"></FAIcom>}
-  />
-</Grid>
-<Grid item xs={3}>
-  <Card
-    name="Snacks"
-    amount={10}
-    backgroundColor="#f0c8cf"
-    icon={<FAIcom name="fa fa-beer"></FAIcom>}
-  />
-</Grid>
-<Grid item xs={3}>
-  <Card
-    name="Alcohol"
-    amount={10}
-    backgroundColor="#c3e9de"
-    icon={<FAIcom name="fa fa-beer"></FAIcom>}
-  />
-</Grid> */}
-
-{/* <Grid item xs={3}>
-<Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
-</Grid>
-<Grid item xs={3}>
-<Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
-</Grid>
-<Grid item xs={3}>
-<Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
-</Grid>
-<Grid item xs={3}>
-<Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
-</Grid>
-<Grid item xs={3}>
-<Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
-</Grid>
-<Grid item xs={3}>
-<Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
-</Grid>
-<Grid item xs={3}>
-<Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
-</Grid>
-<Grid item xs={3}>
-<Foodcard name="ur mom is fat" price={420} from="huhu" to="haha" />
-</Grid> */}

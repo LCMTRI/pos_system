@@ -5,7 +5,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { OrderContext } from "../../contexts/OrderContext";
 
-const ItemCard = ({ num, name, amount }) => {
+const ItemCard = ({ num, price, name, amount }) => {
   let [state, setState] = useState(false);
   const [visible, setVisible] = useState(true);
   const { orderState, orderDispatch } = useContext(OrderContext);
@@ -48,6 +48,9 @@ const ItemCard = ({ num, name, amount }) => {
               </div>
               <div className="amount">
                 <span>x{amount}</span>
+              </div>
+              <div className="debt">
+                <span>{(price * amount).toLocaleString()} VNĐ</span>
               </div>
             </div>
           </div>

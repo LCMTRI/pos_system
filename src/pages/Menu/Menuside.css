@@ -1,5 +1,7 @@
 .side-container {
-    transition: all 5s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .side-container ul {
