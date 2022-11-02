@@ -212,6 +212,8 @@ async function loadstart() {
     document.querySelector('[data-no2 ="12"]').innerHTML = window.localStorage.getItem("tablestate12") + "/" + element.getAttribute("data-maxcus");
   }
 }
+// =======================================================================================================
+
 
 // Called when click on any table square, show control side menu =========================================
 const tableclick = e => {
