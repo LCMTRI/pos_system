@@ -89,6 +89,130 @@ var cusnum;
 var currentcus = 1;
 var loopv = 0;
 
+// Load previous state and time of table / Create new if not exist =======================================
+function waitForElm(selector) {
+  return new Promise(resolve => {
+      if (document.querySelector(selector)) {
+          return resolve(document.querySelector(selector));
+      }
+      const observer = new MutationObserver(mutations => {
+          if (document.querySelector(selector)) {
+              resolve(document.querySelector(selector));
+              observer.disconnect();
+          }
+      });
+      observer.observe(document.body, {
+          childList: true,
+          subtree: true
+      });
+  });
+}
+loadstart();
+async function loadstart() {
+  const elm = await waitForElm('.tablebox'); // Wait for page to load completed then load localstorage
+
+  if (window.localStorage.getItem("tablestate1") === null) {
+    window.localStorage.setItem('tablestate1', 0);
+    window.localStorage.setItem('tablestate2', 0);
+    window.localStorage.setItem('tablestate3', 0);
+    window.localStorage.setItem('tablestate4', 0);
+    window.localStorage.setItem('tablestate5', 0);
+    window.localStorage.setItem('tablestate6', 0);
+    window.localStorage.setItem('tablestate7', 0);
+    window.localStorage.setItem('tablestate8', 0);
+    window.localStorage.setItem('tablestate9', 0);
+    window.localStorage.setItem('tablestate10', 0);
+    window.localStorage.setItem('tablestate11', 0);
+    window.localStorage.setItem('tablestate12', 0);
+
+    window.localStorage.setItem('tabletime1', 0);
+    window.localStorage.setItem('tabletime2', 0);
+    window.localStorage.setItem('tabletime3', 0);
+    window.localStorage.setItem('table4time', 0);
+    window.localStorage.setItem('tabletime5', 0);
+    window.localStorage.setItem('tabletime6', 0);
+    window.localStorage.setItem('tabletime7', 0);
+    window.localStorage.setItem('tabletime8', 0);
+    window.localStorage.setItem('tabletime9', 0);
+    window.localStorage.setItem('tabletime10', 0);
+    window.localStorage.setItem('tabletime11', 0);
+    window.localStorage.setItem('tabletime12', 0);
+  }
+  else {
+    var element = document.querySelector('[data-no="1"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime1"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate1"));
+    if (window.localStorage.getItem("tablestate1") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="1"]').innerHTML = window.localStorage.getItem("tablestate1") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="2"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime2"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate2"));
+    if (window.localStorage.getItem("tablestate2") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="2"]').innerHTML = window.localStorage.getItem("tablestate2") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="3"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime3"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate3"));
+    if (window.localStorage.getItem("tablestate3") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="3"]').innerHTML = window.localStorage.getItem("tablestate3") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="4"]')
+    element.setAttribute("data-time", window.localStorage.getItem("table4time"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate4"));
+    if (window.localStorage.getItem("tablestate4") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="4"]').innerHTML = window.localStorage.getItem("tablestate4") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="5"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime5"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate5"));
+    if (window.localStorage.getItem("tablestate5") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="5"]').innerHTML = window.localStorage.getItem("tablestate5") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="6"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime6"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate6"));
+    if (window.localStorage.getItem("tablestate6") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="6"]').innerHTML = window.localStorage.getItem("tablestate6") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="7"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime7"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate7"));
+    if (window.localStorage.getItem("tablestate7") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="7"]').innerHTML = window.localStorage.getItem("tablestate7") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="8"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime8"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate8"));
+    if (window.localStorage.getItem("tablestate8") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="8"]').innerHTML = window.localStorage.getItem("tablestate8") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="9"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime9"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate9"));
+    if (window.localStorage.getItem("tablestate9") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="9"]').innerHTML = window.localStorage.getItem("tablestate9") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="10"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime10"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate10"));
+    if (window.localStorage.getItem("tablestate10") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="10"]').innerHTML = window.localStorage.getItem("tablestate10") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="11"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime11"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate11"));
+    if (window.localStorage.getItem("tablestate11") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="11"]').innerHTML = window.localStorage.getItem("tablestate11") + "/" + element.getAttribute("data-maxcus");
+
+    element = document.querySelector('[data-no="12"]')
+    element.setAttribute("data-time", window.localStorage.getItem("tabletime12"));
+    element.setAttribute("data-state", window.localStorage.getItem("tablestate12"));
+    if (window.localStorage.getItem("tablestate12") > 0) element.style.background = '#E26868';
+    document.querySelector('[data-no2 ="12"]').innerHTML = window.localStorage.getItem("tablestate12") + "/" + element.getAttribute("data-maxcus");
+  }
+}
+
 // Called when click on any table square, show control side menu =========================================
 const tableclick = e => {
   loopv = 0;
@@ -193,7 +317,7 @@ class InputNumber extends React.Component {
     document.getElementById("overlay").style.width = "0%";
     document.getElementById("rightpanel").style.width = "0px";
 
-    loopv = 1;
+    loopv = 1; // Swith to reset dynamic time counting
   }
 
   // "Xếp khách" button
@@ -211,8 +335,7 @@ class InputNumber extends React.Component {
     document.getElementById("overlay").style.width = "0%";
     document.getElementById("rightpanel").style.width = "0px";
 
-    var nelement2 = document.querySelector('[data-no = "' + tablenum + '"]')
-    nelement2.setAttribute("data-state", currentcus);
+    element.setAttribute("data-state", currentcus);
     document.querySelector('[data-no = "' + tablenum + '"]').style.background = '#E26868';
 
     var max = document.querySelector('[data-no = "' + tablenum + '"]').getAttribute("data-maxcus");
@@ -220,7 +343,14 @@ class InputNumber extends React.Component {
     document.querySelector('[data-no2 = "' + tablenum + '"]').innerHTML = currentcus + "/" + max;
     this.setState({ value: 1 });
 
-    loopv = 1;
+    loopv = 1; // Swith to reset dynamic time counting
+
+    // Save state and time of table to window.localStorage
+    var localtabstate = "tablestate" + tablenum;
+    var localtabtime = "tabletime" + tablenum;
+    window.localStorage.setItem(localtabstate, currentcus);
+    window.localStorage.setItem(localtabtime, currentdate);
+
 
     sendtableusagedb(currentcus); // Send customer quantity data to DB
   }
@@ -238,8 +368,7 @@ class InputNumber extends React.Component {
     document.getElementById("overlay").style.width = "0%";
     document.getElementById("rightpanel").style.width = "0px";
 
-    var nelement2 = document.querySelector('[data-no = "' + tablenum + '"]')
-    nelement2.setAttribute("data-state", "0");
+    element.setAttribute("data-state", "0");
     document.querySelector('[data-no = "' + tablenum + '"]').style.background = 'rgba(0, 0, 0, 0)';
 
     var max = document.querySelector('[data-no = "' + tablenum + '"]').getAttribute("data-maxcus");
@@ -247,7 +376,13 @@ class InputNumber extends React.Component {
     document.querySelector('[data-no2 = "' + tablenum + '"]').innerHTML = "0/" + max;
     this.setState({ value: 1 });
 
-    loopv = 1;
+    loopv = 1; // Swith to reset dynamic time counting
+
+    // Save state and time of table to window.localStorage
+    var localtabstate = "tablestate" + tablenum;
+    var localtabtime = "tabletime" + tablenum;
+    window.localStorage.setItem(localtabstate, 0);
+    window.localStorage.setItem(localtabtime, 0);
   }
 
   render() {
