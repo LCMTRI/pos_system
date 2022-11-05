@@ -6,13 +6,13 @@
 }
 
 #tablenumbox {
-    font-size: 35px;
+    font-size: 2.2vw;
     font-weight: bold;
 }
 
 #tablestate,
 #tabletime {
-    font-size: 20px;
+    font-size: 1.2vw;
 }
 
 #maintable {
@@ -24,15 +24,15 @@
 }
 
 #leftbank {
-    padding-left: 50px;
+    padding-left: 2.5vw;
 }
 
 #centerbank {
-    margin-left: 110px;
+    margin-left: 4vw;
 }
 
 #rightbank {
-    margin-left: 110px;
+    margin-left: 4vw;
 }
 
 .tablebox2 {
@@ -41,8 +41,8 @@
     border-style: solid;
     border-color: white;
     border-width: 5px;
-    width: 300px;
-    height: 140px;
+    width: 15vw;
+    height: 7.5vw;
     margin-bottom: 1.5vw !important;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -57,8 +57,8 @@
     border-style: solid;
     border-color: white;
     border-width: 5px;
-    width: 150px;
-    height: 140px;
+    width: 10vw;
+    height: 7.5vw;
     margin-bottom: 1.5vw !important;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -74,7 +74,7 @@
     border-color: white;
     border-width: 5px;
     width: 200px;
-    height: 255px;
+    height: 13.5vw;
     margin-bottom: 1.5vw !important;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -126,21 +126,19 @@
 }
 
 .tablestate {
-    font-size: 35px !important;
+    font-size: 2vw !important;
     text-align: center;
-    margin-top: -5px;
     pointer-events: none;
 }
 
 .tablestate2 {
-    font-size: 35px !important;
+    font-size: 2vw !important;
     text-align: center;
-    margin-top: -25px;
     pointer-events: none;
 }
 
 .tablestate3 {
-    font-size: 35px !important;
+    font-size: 2vw !important;
     text-align: center;
     margin-top: 30px;
     pointer-events: none;
@@ -255,4 +253,8 @@ input[type="button"]:hover {
 #intbl,
 #clrtbl {
     background-color: #E26868;
+}
+
+#brbr {
+    height: 4vw !important;
 }
