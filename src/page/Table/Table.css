@@ -35,6 +35,22 @@
     margin-left: 110px;
 }
 
+.tablebox2 {
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+    width: 300px;
+    height: 140px;
+    margin-bottom: 1.5vw !important;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+    transition: all .2s ease-in-out;
+}
+
 .tablebox {
     border-radius: 25px;
     background: rgba(0, 0, 0, 0);
@@ -43,21 +59,7 @@
     border-width: 5px;
     width: 150px;
     height: 140px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: white;
-    font-size: xx-large;
-    transition: all .2s ease-in-out;
-}
-
-.tablebox2 {
-    border-radius: 25px;
-    background: rgba(0, 0, 0, 0);
-    border-style: solid;
-    border-color: white;
-    border-width: 5px;
-    width: 200px;
-    height: 100px;
+    margin-bottom: 1.5vw !important;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: white;
@@ -71,8 +73,9 @@
     border-style: solid;
     border-color: white;
     border-width: 5px;
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 255px;
+    margin-bottom: 1.5vw !important;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: white;
