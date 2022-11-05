@@ -6,8 +6,8 @@ import Intro from './pages/Intro/Intro';
 import Menu from './pages/Menu/Menu';
 import Reservation from './pages/Reservation/Reservation';
 import Table from './page/Table/Table';
-import Dashboard from './pages/Dashboard/Dashboard'
-import Employee from './pages/Employee/Employee';
+import Dashboard from './page/Dashboard/Dashboard'
+import Employee from './page/Employee/Employee';
 import Menuside from './pages/Menu/Menuside';
 import Employeeside from './page/Employee/Employeeside';
 

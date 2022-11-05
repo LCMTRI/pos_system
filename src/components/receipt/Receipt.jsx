@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Receipt.css";
 import {
   faMoneyBill,
@@ -9,18 +9,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { OrderContext } from "../../contexts/OrderContext";
 
-function Receipt({ total }) {
+function Receipt({ total, list }) {
   const { orderState, orderDispatch } = useContext(OrderContext);
+  const [toggleState, setToggleState] = useState(1);
+  const togglePayment = (index) => {
+    setToggleState(index);
+  };
 
-//   const handleDes = () => {
-//     setNum(--num)
-//     if (num === 0) 
-//         orderDispatch({type: 'DELETE', payload: {name: name}})
-//     else 
-//         orderDispatch({type: 'DES', payload: {name: name, no: num, price: price}})
-//     }
+    useEffect(() => {
+      console.log("post delete: ", orderState.confirmData);
+    }, [orderState.confirmData]);
 
-    return (
+  const handleClick = () => {
+    orderDispatch({
+      type: "CONFIRM_ORDER",
+      payload: { data: orderState.data },
+    });
+  };
+
+  return (
     <div className="rec-container">
       <div className="rec-content">
         <div className="header">
@@ -34,19 +41,32 @@ function Receipt({ total }) {
           <span>Payment method</span>
           <div className="methods">
             <div className="column">
-              <div className="cash">
+              <div
+                className={toggleState === 1 ? "cash active-method" : "cash"}
+                onClick={() => togglePayment(1)}
+              >
                 <FontAwesomeIcon icon={faMoneyBill} />
               </div>
               <span>Cash</span>
             </div>
             <div className="column">
-              <div className="debit-card">
+              <div
+                className={
+                  toggleState === 2 ? "debit-card active-method" : "debit-card"
+                }
+                onClick={() => togglePayment(2)}
+              >
                 <FontAwesomeIcon icon={faCreditCard} />
               </div>
               <span>Debit Card</span>
             </div>
             <div className="column">
-              <div className="e-wallet">
+              <div
+                className={
+                  toggleState === 3 ? "e-wallet active-method" : "e-wallet"
+                }
+                onClick={() => togglePayment(3)}
+              >
                 <FontAwesomeIcon icon={faWallet} />
               </div>
               <span>E-Wallet</span>
@@ -54,7 +74,7 @@ function Receipt({ total }) {
           </div>
         </div>
         <div className="place-order">
-          <button>Place Order</button>
+          <button onClick={handleClick}>Place Order</button>
         </div>
       </div>
     </div>

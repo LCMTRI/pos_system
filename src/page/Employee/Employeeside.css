@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#employeeside{
+    margin: 100px 10px 0 20px;
+    font-size: 17px;
+}

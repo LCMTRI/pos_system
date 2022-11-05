@@ -1,9 +1,9 @@
 .rec-container {
     position: relative;
-    padding: 15px;
+    padding: 25px;
     width: 100%;
     flex: 1;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color: #555;
     font-family: 'Inter', sans-serif;
 }
@@ -73,7 +73,6 @@
 }
 
 .cash:hover, .debit-card:hover, .e-wallet:hover {
-    height: 70px;
     background-color: white;
     color: #555;
 }
@@ -94,4 +93,14 @@
     border-radius: 30px;
     height: 60px;
     width: 333px;
+    transition: all 0.5s;
+}
+
+.place-order button:hover {
+    background-color: #e3e3e3;
+}
+
+.active-method {
+    background-color: white;
+    color: #555;
 }

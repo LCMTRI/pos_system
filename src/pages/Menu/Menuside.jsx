@@ -10,15 +10,15 @@ const Menuside = () => {
     useEffect(() => {
         // setList(orderState.data.map(e => <li><ItemCard name={e.name} num={e.no} amount={e.no} /></li>))
         setList(orderState.data);
-    },[orderState]);
+
+    },[orderState.data]);
 
     return (
         <div className="side-container">
             <ul>
-                {list.map(e => <li><ItemCard name={e.name} price={e.price} amount={e.no} /></li>)}
-                {console.log(list)}
+                {list.map(e => <li key={e.name}><ItemCard name={e.name} price={e.price} amount={e.no} /></li>)}
             </ul>
-            <Receipt total={list.length === 0 ? 0 : list.reduce((a,v) => a = a + (v.price * v.no), 0)} />
+            <Receipt total={list.length === 0 ? 0 : list.reduce((a,v) => a = a + (v.price * v.no), 0)} list={list} />
         </div>
     );
 }

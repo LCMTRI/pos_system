@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { OrderContext } from "../../contexts/OrderContext";
 import './FoodCard.css';
 
-function FoodCard({name, price}) {
+function FoodCard({name, price, from}) {
     var [num, setNum] = useState(0)
     
     const { orderState, orderDispatch } = useContext(OrderContext);
@@ -24,9 +24,9 @@ function FoodCard({name, price}) {
             num = 0
             setNum(0)
         }
+        
     }, [orderState.data.findIndex(v => v.name === name)])
      
-
 
     const handleIns = () => {
         setNum(++num)
@@ -34,6 +34,7 @@ function FoodCard({name, price}) {
             orderDispatch({type: 'ADD', payload: {name: name, no: num, price: price}})
         else 
             orderDispatch({type: 'INS', payload: {name: name, no: num, price: price}})
+
 
     }
 
@@ -50,11 +51,16 @@ function FoodCard({name, price}) {
   return (
 <div className='foodcard-container' >
     <div className='foodcard-body' ref={bodyRef}> 
-            
+        <div class="corner-ribbon__inner">
+            <div class="corner-ribbon__ribbon">-Best-seller-</div>
+        </div>
         {/* <div className="process">
             <span>{from}</span>
             <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
             <span>{to}</span>
+        </div> */}
+        {/* <div className="best">
+            <span>Best seller</span>
         </div> */}
         <div className='food-name'>
             <span>{name}</span>

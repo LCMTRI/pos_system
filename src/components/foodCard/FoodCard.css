@@ -6,8 +6,7 @@
     height: 11rem;
     align-items: center;
     justify-content: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 1px;
 }
 
 .foodcard-body {
@@ -108,7 +107,7 @@
 
 .food-name {
     z-index: 4;
-    margin-left: 1em;
+    margin-left: 1.1em;
     width: 100%;
     height: 30%;
     display: flex;
@@ -120,12 +119,11 @@
     float: left;
     font-size: larger;
     font-weight: 500;
-
 }
 
 .food-price {
     z-index: 4;
-    margin-left: 1em;
+    margin-left: 1.1em;
     width: 100%;
 }
 
@@ -143,7 +141,6 @@
     display: flex;
     flex-direction: row-reverse;
     text-align: center;
-
 }
 
 .food-num>span,
@@ -156,11 +153,69 @@ i {
     margin-bottom: 3%;
     font-size: larger;
     font-weight: 500;
-
 }
 
 
 .food-num>i {
     font-size: xx-large;
     padding: 0 0.2em;
+}
+
+.best {
+    z-index: 4;
+    height: 20%;
+    width: 100%;
+    /* float: right; */
+}
+
+.best>span {
+    font-size: 13px;
+    padding: 5px 10px;
+    color: #555;
+    background-color: white;
+    border-radius: 14.2px;
+    font-weight: 400;
+    float: right;
+    margin-top: 20px;
+    transform: rotate(30deg);
+}
+
+.corner-ribbon__inner {
+    /* Displayed at the top left corner */
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+
+    /* Size */
+    height: 2rem;
+    width: 4rem;
+
+    /* Hide the part of its children which is displayed outside */
+    /* overflow: hidden; */
+}
+
+.corner-ribbon__ribbon {
+    /* Position */
+    left: 1rem;
+    position: relative;
+    top: 1rem;
+    z-index: 3;
+
+    /* Size */
+    height: 1.5rem;
+    width: 7rem;
+
+    /* Displayed diagonally */
+    transform: translate(100px, -1px) rotate(40deg);
+
+    /* Background color */
+    background-color: #eb9675;
+    color: #2d2d2d;
+    font-size: 13px;
+    font-weight: 500;
+    padding-top: 3px;
+
+    /* Centerize the text content */
+    text-align: center;
 }
