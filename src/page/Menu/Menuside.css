@@ -1,9 +1,0 @@
-.side-container {
-    transition: all 5s;
-}
-
-.side-container ul {
-    transition: all 5s;
-    list-style: none;
-    padding: 0;
-}

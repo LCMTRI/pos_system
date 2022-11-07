@@ -55,12 +55,17 @@ const Menu = () => {
         }}
       />
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={0.5}>
-          {card.item.map((element) => (
-            <Grid item xs={3}>
-              <Foodcard name={element.name} price={element.price} />
-            </Grid>
-          ))}
+        <Grid container spacing={0.5} height={350}>
+          {
+            card.item.length === 0 ? (
+                <div style={{height: "inherit", width: "inherit", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", color: "#cacaca"}}>Choose category</div>
+            ) :
+              card.item.map((element) => (
+                <Grid item xs={3}>
+                  <Foodcard name={element.name} price={element.price} />
+                </Grid>
+              ))
+          }
         </Grid>
       </Box>
     </div>
