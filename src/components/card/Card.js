@@ -1,6 +1,6 @@
 import './Card.css';
 
-function Card({name, amount, backgroundColor, icon}) {
+function Card({name, amount, backgroundColor, icon, updateState}) {
 
 
     const styles = {
@@ -9,7 +9,7 @@ function Card({name, amount, backgroundColor, icon}) {
         },
     };
   return (
-    <div className='card-container' >
+    <div className='card-container' onClick={() => updateState(name)}>
         <div className='card-body' style={styles.background}> 
             {icon}
             <div className='category-name'>

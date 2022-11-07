@@ -1,4 +1,4 @@
-.nav {
+/* .nav {
     flex: 0 0 18%;
     background-color: #333;
     position: sticky;
@@ -60,4 +60,19 @@
 .nav li:hover {
     background-color: #777;
     color: white;
+} */
+
+.icon-container {
+    width: 2.5em;
+    height: 6em;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.icon-container #icon {
+    color: black;
+    font-size: x-large;
+    position: relative;
+    top: 0px;
 }

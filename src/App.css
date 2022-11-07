@@ -9,7 +9,7 @@ body {
   margin: 0;
   height: 100vh;
   font-family: 'Inter', sans-serif;
-  background-color: #111315;
+  background-color: #111315;  
   color: white;
 }
 
@@ -22,8 +22,11 @@ body {
 .mid-container {
   width: 57%;
   background-color: #111315;
+  padding: 1rem 0.5rem;
 }
 
 .right-container {
   flex: 1;
+  overflow: hidden;
+  padding: 1rem;
 }

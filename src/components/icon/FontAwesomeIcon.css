@@ -1,14 +1,13 @@
 .icon-container {
-    width: 4em;
-    height: 5em;
+    width: 2.5em;
+    height: 6em;
     text-align: center;
-    vertical-align: middle;
-    line-height: 4em;
+    /* vertical-align: middle; */
+    padding: 22px 0 0 20px;
     position: relative;
 }
-.category-icon {
+.icon-container #icon {
     color: black;
-    font-size: x-large;
+    font-size: 25px;
     position: relative;
-    top: calc(50% - 10px);
 }

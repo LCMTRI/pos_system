@@ -1,13 +1,15 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import './Navbar.css';
+import { faUtensils, faKitchenSet } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Navbar() {
   return (
     <div className="nav">
       <Link to="/" className="site-title">
-        CosyPOS
+        <FontAwesomeIcon icon={faKitchenSet} style={{fontSize: "38px", marginRight: "5px"}} />
+        <span>CosyPOS</span> 
       </Link>
-      <br></br><br></br>
       <ul>
         <CustomLink to="/menu">Menu</CustomLink>
         <CustomLink to="/reservation">Reservation</CustomLink>
