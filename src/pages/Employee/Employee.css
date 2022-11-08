@@ -75,4 +75,19 @@
 }
 
 
+.ti-arrow-up{
+    display: none;
+}
+
+
+.ti-arrow-up,
+.ti-arrow-down{
+    color: #000;
+    margin-top: 5px;
+}
+
+.ti-arrow-up:hover,
+.ti-arrow-down:hover{
+    color: #fff;
+}
 

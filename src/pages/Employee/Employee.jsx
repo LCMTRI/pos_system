@@ -16,7 +16,7 @@ const Employee = () => {
                 <table id='myTable' class="employee">
                     <tr>
                         <th></th>
-                        <th onClick={sort}>Doanh thu hôm nay</th>
+                        <th onClick={sortTable}>Doanh thu hôm nay <i className="ti-arrow-down"></i> <i className="ti-arrow-up"></i></th>
                         <th>Buổi làm hôm nay</th>
                         <th>Có mặt hiện tại</th>
                     </tr>
@@ -388,40 +388,54 @@ const hideInfo = e => {
         history.classList.remove("show");
     }
 }
-const sort = e => {
-        var table, rows, switching, i, x, y, shouldSwitch;
-        table = document.getElementById("myTable");
-        switching = true;
-        /*Make a loop that will continue until
-        no switching has been done:*/
-        while (switching) {
-          //start by saying: no switching is done:
-          switching = false;
-          rows = table.rows;
-          /*Loop through all table rows (except the
-          first, which contains table headers):*/
-          for (i = 1; i < (rows.length - 1); i++) {
-            //start by saying there should be no switching:
+const sortTable = e => {
+    var table, rows, switching, i, x, y, dir, shouldSwitch, count = 0;
+    table = document.getElementById("myTable");
+    switching = true;
+    dir = "low";
+    while (switching) {
+
+        switching = false;
+        rows = table.rows;
+
+        for (i = 1; i < (rows.length - 1); i++) {
+
             shouldSwitch = false;
-            /*Get the two elements you want to compare,
-            one from current row and one from the next:*/
-            x = rows[i].getElementsByTagName("TD")[0];
-            y = rows[i + 1].getElementsByTagName("TD")[0];
-            //check if the two rows should switch place:
-            if (x > y) {
-              //if so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
+
+            x = rows[i].getElementsByTagName("TD")[1];
+            y = rows[i + 1].getElementsByTagName("TD")[1];
+            if (dir == "low") {
+                if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                    document.querySelector('.ti-arrow-up').style.display = 'block';
+                    document.querySelector('.ti-arrow-down').style.display = 'none';
+                    shouldSwitch = true;
+                    break;
+                }
             }
-          }
-          if (shouldSwitch) {
-            /*If a switch has been marked, make the switch
-            and mark that a switch has been done:*/
+            else if (dir == "high"){
+                if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                    document.querySelector('.ti-arrow-up').style.display = 'none';
+                    document.querySelector('.ti-arrow-down').style.display = 'block';
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+
+        if (shouldSwitch) {
+
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
-          }
+            count++;
         }
-      
+        else {
+            if (count == 0 && dir == "low") {
+                dir = "high";
+                switching = true;
+            }
+        }
+    }
+
 }
 
 export default Employee;
