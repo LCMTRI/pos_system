@@ -2,8 +2,13 @@ import React from 'react';
 import { Pie, Bar, Line } from 'react-chartjs-2'
 import './Dashboard.css'
 
+import {SiCashapp} from 'react-icons/si'
+import {SlPeople} from 'react-icons/sl'
+import {SlBriefcase} from 'react-icons/sl'
+
 import { Chart, ArcElement } from 'chart.js'
 import 'chart.js/auto';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 Chart.register(ArcElement);
 
 const Dashboard = () => {
@@ -11,14 +16,17 @@ const Dashboard = () => {
         <div>
             <div className='card-number'>
                 <div className='first-card'>
-                    Tổng doanh thu: <br></br>
+                    <SiCashapp className='react-icon' /> <br></br>
+                    <span style={{lineHeight: "33px"}}>Tổng doanh thu:</span> <br></br>
                     <span className='number'>335.24</span> <br></br> triệu đồng
                 </div>
                 <div className='second-card'>
+                    <SlPeople className='react-icon' /> <br></br>
                     Tổng lượt khách vào quán: <br></br>
                     <span className='number'>9,402</span> <br></br> lượt
                 </div>
                 <div className='third-card'>
+                    <SlBriefcase className='react-icon' /> <br></br>
                     Số nhân viên làm việc hôm nay: <br></br>
                     <span className='number'>13</span> <br></br> người
                 </div>
@@ -28,7 +36,7 @@ const Dashboard = () => {
                 <div className='first-chart'>
                     <Pie
                         data={{
-                            labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Gray', 'Black'],
+                            labels: ['Món 1', 'Món 2', 'Món 3', 'Món 4', 'Món 5', 'Món 6', 'Món 7', 'Còn lại'],
                             datasets: [{
                                 label: 'Tỷ lệ doanh thu các loại đồ ăn 7 ngày gần nhất',
                                 data: [33, 22, 32, 13, 55, 21, 43, 45],
@@ -51,7 +59,7 @@ const Dashboard = () => {
                         }}
                     />
                 </div>
-                <div className='second-chart'>
+                {/* <div className='second-chart'>
                     <Bar
                         data={{
                             labels: ['Red', 'Orange', 'Yellow'],
@@ -81,9 +89,9 @@ const Dashboard = () => {
                         }}
 
                     />
-                </div>
+                </div> */}
                 <div className='third-chart'>
-                    <Line
+                    <Bar
                         data={{
                             labels: ['10/10', '11/10', '12/10', '13/10', '14/10', '15/10', '16/10', '17/10'],
                             datasets: [{
