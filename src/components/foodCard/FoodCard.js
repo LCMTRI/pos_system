@@ -54,11 +54,11 @@ function FoodCard({name, price, from}) {
         <div class="corner-ribbon__inner">
             <div class="corner-ribbon__ribbon">-Best-seller-</div>
         </div>
-        {/* <div className="process">
+        <div className="process">
             <span>{from}</span>
-            <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
-            <span>{to}</span>
-        </div> */}
+            {/* <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span>{to}</span> */}
+        </div>
         {/* <div className="best">
             <span>Best seller</span>
         </div> */}

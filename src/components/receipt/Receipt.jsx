@@ -4,14 +4,17 @@ import {
   faMoneyBill,
   faCreditCard,
   faWallet,
+  faCheck
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { OrderContext } from "../../contexts/OrderContext";
+import Modal from '../modal/Modal';
 
-function Receipt({ total, list }) {
+function Receipt({ total }) {
   const { orderState, orderDispatch } = useContext(OrderContext);
   const [toggleState, setToggleState] = useState(1);
+  const [openModal, setOpenModal] = useState(false);
   const togglePayment = (index) => {
     setToggleState(index);
   };
@@ -25,6 +28,8 @@ function Receipt({ total, list }) {
       type: "CONFIRM_ORDER",
       payload: { data: orderState.data },
     });
+    orderState.confirmData = [];
+    setOpenModal(true)
   };
 
   return (
@@ -74,7 +79,11 @@ function Receipt({ total, list }) {
           </div>
         </div>
         <div className="place-order">
-          <button onClick={handleClick}>Place Order</button>
+          <button onClick={handleClick} >Place Order</button>
+          <Modal 
+          open={openModal} 
+          onClose={() => setOpenModal(false)} 
+          order={orderState.confirmData} />
         </div>
       </div>
     </div>

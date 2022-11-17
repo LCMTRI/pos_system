@@ -31,7 +31,7 @@ const ItemCard = ({ num, price, name, amount }) => {
             <FontAwesomeIcon icon={faTrash} color="#E04A48" />
           </div>
           <div
-            className="overlay"
+            className="card-overlay"
             onClick={toggle}
             style={
               state

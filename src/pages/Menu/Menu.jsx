@@ -62,7 +62,7 @@ const Menu = () => {
             ) :
               card.item.map((element) => (
                 <Grid item xs={3}>
-                  <Foodcard name={element.name} price={element.price} />
+                  <Foodcard name={element.name} price={element.price} from="Discout 50%" />
                 </Grid>
               ))
           }
@@ -73,7 +73,3 @@ const Menu = () => {
 };
 
 export default Menu;
-
-{
-  /* <div className="icon-container"><FontAwesomeIcon id="icon" icon={element.icon} /></div>   <FAIcon name={element.icon}></FAIcon> */
-}

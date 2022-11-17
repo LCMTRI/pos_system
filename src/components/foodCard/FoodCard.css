@@ -188,7 +188,7 @@ i {
     z-index: 2;
 
     /* Size */
-    height: 2rem;
+    height: 0.5rem;
     width: 4rem;
 
     /* Hide the part of its children which is displayed outside */
