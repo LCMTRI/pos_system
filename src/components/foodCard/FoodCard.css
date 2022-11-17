@@ -1,0 +1,221 @@
+.foodcard-container {
+    position: relative;
+    float: left;
+    z-index: 1;
+    width: 100%;
+    height: 11rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1px;
+}
+
+.foodcard-body {
+    position: relative;
+    z-index: 3;
+    width: 97%;
+    height: 97%;
+    border-radius: 10px;
+    margin: auto;
+    background-color: rgb(236, 189, 236); /* linear-gradient(to right, rgb(236, 189, 236) 60%, rgb(236, 189, 236) 60%); */
+    overflow: hidden;
+}
+
+.foodcard-body>div {
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, black 50%, white 50%);
+    -webkit-background-clip: text, border-box;
+    background-clip: text, border-box;
+    background-repeat: no-repeat;
+    background-position: 100% top, 100% top;
+    transition: background-position 0.4s;
+    color: transparent;
+}
+
+
+.foodcard-body.transform-text-and-icon>div {
+    background-position: 0% top, 0% top;
+}
+
+.foodcard-body.transform-text-and-icon>div>i {
+    background-position: 0% top, 0% top;
+}
+
+.foodcard-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 192%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(236, 189, 236), rgb(236, 189, 236) 2%, #2d2d2d 2%, #2d2d2d);
+    transition: transform 0.4s;
+    z-index: 2;
+}
+/* .foodcard-body:hover::before {
+    transform: translateX(50%);
+}  */
+
+/* .before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 192%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(236, 189, 236), rgb(236, 189, 236) 2%, #2d2d2d 2%, #2d2d2d);
+    transition: transform 0.4s;
+    z-index: 2;
+}
+
+
+.foodcard-body:hover .before {
+    transform: translateX(50%);
+} */
+
+/* .transform-text-and-icon {
+    background-position: 0% top, 0% top;
+} */
+
+.foodcard-body.transform-background::before {
+    transform: translateX(55%);
+}
+
+@keyframes stripes {
+    to {
+        background-size: 200% 100%;
+    }
+}
+
+.foodcard-body>div {
+    position: relative;
+}
+
+.process {
+    z-index: 4;
+    display: flex;
+    font-size: small;
+    align-items: center;
+    justify-items: center;
+    margin-left: 1em;
+    padding-top: 1em;
+}
+
+.process>i {
+    padding: 0 10px;
+}
+
+
+
+.food-name {
+    z-index: 4;
+    margin-left: 1.1em;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.food-name>span {
+    float: left;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.food-price {
+    z-index: 4;
+    margin-left: 1.1em;
+    width: 100%;
+}
+
+.food-price>span {
+    float: left;
+    color: #807f7f;
+    font-weight: 500;
+}
+
+.food-num {
+    z-index: 4;
+    height: 30%;
+    width: 90%;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: center;
+}
+
+.food-num>span,
+i {
+    float: right;
+}
+
+.food-num>span {
+    width: 1em;
+    margin-bottom: 3%;
+    font-size: larger;
+    font-weight: 500;
+}
+
+
+.food-num>i {
+    font-size: xx-large;
+    padding: 0 0.2em;
+}
+
+.best {
+    z-index: 4;
+    height: 20%;
+    width: 100%;
+    /* float: right; */
+}
+
+.best>span {
+    font-size: 13px;
+    padding: 5px 10px;
+    color: #555;
+    background-color: white;
+    border-radius: 14.2px;
+    font-weight: 400;
+    float: right;
+    margin-top: 20px;
+    transform: rotate(30deg);
+}
+
+.corner-ribbon__inner {
+    /* Displayed at the top left corner */
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+
+    /* Size */
+    height: 0.5rem;
+    width: 4rem;
+
+    /* Hide the part of its children which is displayed outside */
+    /* overflow: hidden; */
+}
+
+.corner-ribbon__ribbon {
+    /* Position */
+    left: 1rem;
+    position: relative;
+    top: 1rem;
+    z-index: 3;
+
+    /* Size */
+    height: 1.5rem;
+    width: 7rem;
+
+    /* Displayed diagonally */
+    transform: translate(100px, -1px) rotate(40deg);
+
+    /* Background color */
+    background-color: #eb9675;
+    color: #2d2d2d;
+    font-size: 13px;
+    font-weight: 500;
+    padding-top: 3px;
+
+    /* Centerize the text content */
+    text-align: center;
+}

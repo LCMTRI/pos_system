@@ -1,8 +1,16 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { OrderProvider } from './contexts/OrderContext';
 
-
-import ReactDOM from "react-dom/client";
-
-const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<App />);
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+    <OrderProvider>
+      <App />
+    </OrderProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
+);

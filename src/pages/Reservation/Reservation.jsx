@@ -1,11 +1,11 @@
 import React from 'react';
-import './Table.css';
+import './Reservation.css';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 
 
-const Table = () => {
+const Reservation = () => {
   return (
     <div id="table">
       <div id="maintable">
@@ -68,13 +68,13 @@ const Table = () => {
       <div id="overlay">
         <div id="rightpanel">
           <div id="control">
-            <br></br><br></br><br></br><br></br>
+            <div id="brbr"></div>
             <center><big id="tablenumbox"></big></center>
-            <br></br><br></br><br></br><br></br><br></br>
+            <div id="brbr"></div>
             <center><big id="tablestate"></big></center>
             <br></br>
             <center><big id="tabletime"></big></center>
-            <br></br><br></br><br></br><br></br>
+            <div id="brbr"></div>
 
             <center><div id="tableslider"><InputNumber /></div></center>
           </div>
@@ -395,11 +395,11 @@ class InputNumber extends React.Component {
           <span>{this.value}</span>
           <button type="button" onClick={this.increment}>&#43;</button>
         </div>
-        <br></br><br></br><br></br><br></br>
+        <div id="brbr"></div>
         <input type="button" value="Xếp khách" onClick={this.usetable} id="intbl" />
-        <br></br><br></br>
+        <br></br>
         <input type="button" value="Dọn bàn" onClick={this.cleartable} id="clrtbl" />
-        <br></br><br></br><br></br>
+        <div id="brbr"></div>
         <input type="button" value="Trở lại" onClick={this.cancel} id="cancelbutton" />
       </div>
     )
@@ -467,4 +467,4 @@ async function gettotalcustomer(startdate, enddate) {
   return totalcusv;
 }
 
-export default Table;
+export default Reservation;

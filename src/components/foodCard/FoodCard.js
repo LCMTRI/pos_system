@@ -1,39 +1,80 @@
-import { useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { OrderContext } from "../../contexts/OrderContext";
+import './FoodCard.css';
 
-function FoodCard({name, price, from, to}) {
+function FoodCard({name, price, from}) {
+    var [num, setNum] = useState(0)
+    
+    const { orderState, orderDispatch } = useContext(OrderContext);
+    const bodyRef = useRef(null)
 
-    const [num, setNum] = useState(0)
+    useEffect(() => {
+        
+        if (num > 0 && !bodyRef.current.classList.contains("transform-background")) {
+            bodyRef.current.classList.toggle("transform-background")
+            bodyRef.current.classList.toggle("transform-text-and-icon")
+        } else if (num <= 0 && bodyRef.current.classList.contains("transform-background"))  {
+            bodyRef.current.classList.toggle("transform-background")
+            bodyRef.current.classList.toggle("transform-text-and-icon")
+        }
+    }, [num])
 
-    const styles = {
-        background: {
-            backgroundColor: backgroundColor,
-        },
-    };
+    useEffect (() => {
+        if (orderState.data.findIndex(v => v.name === name) === -1) {
+            num = 0
+            setNum(0)
+        }
+        
+    }, [orderState.data.findIndex(v => v.name === name)])
+     
+
+    const handleIns = () => {
+        setNum(++num)
+        if (num === 1) 
+            orderDispatch({type: 'ADD', payload: {name: name, no: num, price: price}})
+        else 
+            orderDispatch({type: 'INS', payload: {name: name, no: num, price: price}})
+
+
+    }
+
+    const handleDes = () => {
+        setNum(--num)
+        if (num === 0) 
+            orderDispatch({type: 'DELETE', payload: {name: name}})
+        else 
+            orderDispatch({type: 'DES', payload: {name: name, no: num, price: price}})
+    }
 
 
 
   return (
-    <div className='card-container' >
-        <div className='card-body' style={styles.background}> 
-            <div></div>
-            <div>
-                <span>{from}</span>
-                <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
-                <span>{to}</span>
-            </div>
-            <div className='food-name'>
-                <span>{name}</span>
-            </div>
-            <div className='food-price'>
-                <span>${price}</span>
-            </div>
-            <div>
-                <button><i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => setNum(++num)}></i></button>
-                <span>{num}</span>
-                <button><i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => setNum(--num)}></i></button>
-            </div>
+<div className='foodcard-container' >
+    <div className='foodcard-body' ref={bodyRef}> 
+        <div class="corner-ribbon__inner">
+            <div class="corner-ribbon__ribbon">-Best-seller-</div>
+        </div>
+        <div className="process">
+            <span>{from}</span>
+            {/* <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span>{to}</span> */}
+        </div>
+        {/* <div className="best">
+            <span>Best seller</span>
+        </div> */}
+        <div className='food-name'>
+            <span>{name}</span>
+        </div>
+        <div className='food-price'>
+            <span>{price.toLocaleString()} VNĐ</span>
+        </div>
+        <div className="food-num">
+            <i className="fa fa-plus-square-o" aria-hidden="true" onClick={() => handleIns()}></i>
+            <span>{num}</span>
+            <i className="fa fa-minus-square-o" aria-hidden="true" onClick={() => !num || handleDes()}></i>
         </div>
     </div>
+</div>
   )
 }
 

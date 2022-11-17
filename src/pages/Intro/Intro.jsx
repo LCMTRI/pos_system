@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import './Intro.css';
 
 function Intro() {
   return (
-    <div>
-        <h1>Intro</h1>
+    <div className='intro-container'>
+        <div className="img-container">
+          <img src={require('./photo.jpg')} />
+        </div>
+        <h1>Tên nhân viên</h1>
+        <h2>Chức vụ: Nhân viên</h2>
     </div>
   )
 }
