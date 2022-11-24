@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import './Employee.css';
-import './Employeeside.css';
+import { db } from './firebaseConfig'
+import { collection, documentId, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore'
 import './fonts/themify-icons/themify-icons.css';
 
 const Employee = () => {
+    const [users, setUsers] = useState([]);
+    //useEffect -> Runs a piece of code based on a specific condition.
+    useEffect(() => {
+        // this is where the code runs
+        getUsersData();
+    }, []);
 
-
+    const getUsersData = async () => {
+        const usersCol = collection(db, 'users');
+        const snapshot = await getDocs(usersCol);
+        setUsers(
+            snapshot.docs.map(doc => ({
+                id: doc.id,
+                user: doc.data(),
+                shift: doc.data().shift
+            }))
+        )
+    }
 
     return (
         <div>
@@ -16,43 +33,26 @@ const Employee = () => {
                 <table id='myTable' class="employee">
                     <tr>
                         <th></th>
-                        <th onClick={sortTable}>Doanh thu hôm nay <i className="ti-arrow-down"></i> <i className="ti-arrow-up"></i></th>
+                        <th onClick={sortTable}>Doanh thu hôm nay  <i className="ti-arrow-up"></i></th>
                         <th>Buổi làm hôm nay</th>
                         <th>Có mặt hiện tại</th>
                     </tr>
-                    <tr>
-                        <td onClick={showInfo1}>Trần Quốc Dũng</td>
-                        <td >200.000</td>
-                        <td>Chiều</td>
-                        <td>Có</td>
-                    </tr>
-                    <tr>
-                        <td onClick={showInfo2}>Nguyễn Anh Khoa</td>
-                        <td>150.000</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td onClick={showInfo3}>Đinh Gia Bảo</td>
-                        <td>600.000</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td onClick={showInfo4}>Nguyễn Công Thành</td>
-                        <td>100.000</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td onClick={showInfo5}>Nguyễn Trung Kiên</td>
-                        <td>0</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
+                    {
+                        users.map(({ id, user }) => (
+                            <tr id={id}>
+                                <td onClick={showInfo}>{user.name}</td>
+                                <td>{user.revenue_today}</td>
+                                <td>{user.work_today}</td>
+                                <td>{user.active}<i onClick={deleteUser} className="ti-close"></i></td>
+                            </tr>
+                        ))
+                    }
                 </table>
+                {/* <div>
+            <button id="create" onClick={setUser}>Create</button>
+        </div> */}
             </div>
+
             <div id="number-2">
                 <div>
                     <br />
@@ -61,275 +61,91 @@ const Employee = () => {
                 </div>
                 <br />
                 <h1 class="header-his">Lịch sử ca trực</h1>
-                <div id="history1" class="history">
-                    <table id='emp-his' class="employee">
-                        <tr>
-                            <th></th>
-                            <th>Buổi sáng</th>
-                            <th>Buổi chiều</th>
-                            <th>Buổi tối</th>
-                        </tr>
-                        <tr>
-                            <td>Thứ 2</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 3</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 4</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 5</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 6</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 7</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Chủ nhật</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-
+                <div>
+                    <table id="shift" class="employee">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Buổi sáng</th>
+                                <th>Buổi chiều</th>
+                                <th>Buổi tối</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                users.map(({ id, shift }) => (
+                                    <tr class={id}>
+                                        <td>Thứ Hai</td>
+                                        <td>{shift.mon[0]}</td>
+                                        <td>{shift.mon[1]}</td>
+                                        <td>{shift.mon[2]}</td>
+                                    </tr>
+                                ))
+                            }
+                            {
+                                users.map(({ id, shift }) => (
+                                    <tr class={id}>
+                                        <td>Thứ Ba</td>
+                                        <td>{shift.tue[0]}</td>
+                                        <td>{shift.tue[1]}</td>
+                                        <td>{shift.tue[2]}</td>
+                                    </tr>
+                                ))
+                            }
+                            {
+                                users.map(({ id, shift }) => (
+                                    <tr class={id}>
+                                        <td>Thứ Tư</td>
+                                        <td>{shift.wed[0]}</td>
+                                        <td>{shift.wed[1]}</td>
+                                        <td>{shift.wed[2]}</td>
+                                    </tr>
+                                ))
+                            }
+                            {
+                                users.map(({ id, shift }) => (
+                                    <tr class={id}>
+                                        <td>Thứ Năm</td>
+                                        <td>{shift.thu[0]}</td>
+                                        <td>{shift.thu[1]}</td>
+                                        <td>{shift.thu[2]}</td>
+                                    </tr>
+                                ))
+                            }
+                            {
+                                users.map(({ id, shift }) => (
+                                    <tr class={id}>
+                                        <td>Thứ Sáu</td>
+                                        <td>{shift.fri[0]}</td>
+                                        <td>{shift.fri[1]}</td>
+                                        <td>{shift.fri[2]}</td>
+                                    </tr>
+                                ))
+                            }
+                            {
+                                users.map(({ id, shift }) => (
+                                    <tr class={id}>
+                                        <td>Thứ Bảy</td>
+                                        <td>{shift.sat[0]}</td>
+                                        <td>{shift.sat[1]}</td>
+                                        <td>{shift.sat[2]}</td>
+                                    </tr>
+                                ))
+                            }
+                            {
+                                users.map(({ id, shift }) => (
+                                    <tr class={id}>
+                                        <td>Chủ Nhật</td>
+                                        <td>{shift.sun[0]}</td>
+                                        <td>{shift.sun[1]}</td>
+                                        <td>{shift.sun[2]}</td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
                     </table>
                 </div>
-                <div id="history2" class="history">
-                    <table id='emp-his' class="employee">
-                        <tr>
-                            <th></th>
-                            <th>Buổi sáng</th>
-                            <th>Buổi chiều</th>
-                            <th>Buổi tối</th>
-                        </tr>
-                        <tr>
-                            <td>Thứ 2</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 3</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 4</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 5</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 6</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 7</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Chủ nhật</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-
-                    </table>
-                </div>
-                <div id="history3" class="history">
-                    <table id='emp-his' class="employee">
-                        <tr>
-                            <th>Trần Quốc Dũng</th>
-                            <th>Buổi sáng</th>
-                            <th>Buổi chiều</th>
-                            <th>Buổi tối</th>
-                        </tr>
-                        <tr>
-                            <td>Thứ 2</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 3</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 4</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 5</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 6</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 7</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Chủ nhật</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-
-                    </table>
-                </div>
-                <div id="history4" class="history">
-                    <table id='emp-his' class="employee">
-                        <tr>
-                            <th></th>
-                            <th>Buổi sáng</th>
-                            <th>Buổi chiều</th>
-                            <th>Buổi tối</th>
-                        </tr>
-                        <tr>
-                            <td>Thứ 2</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 3</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 4</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 5</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 6</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 7</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Chủ nhật</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-
-                    </table>
-                </div>
-                <div id="history5" class="history">
-                    <table id='emp-his' class="employee">
-                        <tr>
-                            <th></th>
-                            <th>Buổi sáng</th>
-                            <th>Buổi chiều</th>
-                            <th>Buổi tối</th>
-                        </tr>
-                        <tr>
-                            <td>Thứ 2</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 3</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 4</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 5</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 6</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Thứ 7</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Chủ nhật</td>
-                            <td>7.00 - 9.00</td>
-                            <td>Không</td>
-                            <td>9.00 - 11.00</td>
-                        </tr>
-
-                    </table>
-                </div>
-
-
             </div>
-
         </div>
 
     );
@@ -339,55 +155,28 @@ const Employee = () => {
 // Script
 
 
-const showInfo1 = e => {
+const showInfo = e => {
     document.getElementById('number-1').style.display = 'none';
     document.getElementById('number-2').style.display = 'block';
-    document.getElementById('emp1').classList.add("show");
-    document.getElementById('history1').classList.add("show");
-
-}
-
-const showInfo2 = e => {
-    document.getElementById('number-1').style.display = 'none';
-    document.getElementById('number-2').style.display = 'block';
-    document.getElementById('emp2').classList.add("show");
-    document.getElementById('history2').classList.add("show");
-
-}
-
-const showInfo3 = e => {
-    document.getElementById('number-1').style.display = 'none';
-    document.getElementById('number-2').style.display = 'block';
-    document.getElementById('emp3').classList.add("show");
-    document.getElementById('history3').classList.add("show");
-}
-
-const showInfo4 = e => {
-    document.getElementById('number-1').style.display = 'none';
-    document.getElementById('number-2').style.display = 'block';
-    document.getElementById('emp4').classList.add("show");
-    document.getElementById('history4').classList.add("show");
-}
-
-const showInfo5 = e => {
-    document.getElementById('number-1').style.display = 'none';
-    document.getElementById('number-2').style.display = 'block';
-    document.getElementById('emp5').classList.add("show");
-    document.getElementById('history5').classList.add("show");
+    var blocks = document.querySelectorAll('.' + e.target.parentNode.id);
+    for (var block of blocks) {
+        block.style.display = 'table-row';
+    }
 }
 
 const hideInfo = e => {
     document.getElementById('number-1').style.display = 'block';
     document.getElementById('number-2').style.display = 'none';
-    const emps = document.querySelectorAll('.employeeside');
+    const emps = document.querySelectorAll('#emp');
     for (const emp of emps) {
-        emp.classList.remove("show");
+        emp.style.display = 'none';
     }
-    const histories = document.querySelectorAll('.history');
-    for (const history of histories) {
-        history.classList.remove("show");
+    const trs = document.querySelectorAll('tr[class]');
+    for (const tr of trs) {
+        tr.style.display = 'none';
     }
 }
+
 const sortTable = e => {
     var table, rows, switching, i, x, y, dir, shouldSwitch, count = 0;
     table = document.getElementById("myTable");
@@ -406,16 +195,16 @@ const sortTable = e => {
             y = rows[i + 1].getElementsByTagName("TD")[1];
             if (dir == "low") {
                 if (Number(x.innerHTML) > Number(y.innerHTML)) {
-                    document.querySelector('.ti-arrow-up').style.display = 'block';
-                    document.querySelector('.ti-arrow-down').style.display = 'none';
+                    document.querySelector('.ti-arrow-up').style.display = 'none';
+                    document.querySelector('.ti-arrow-down').style.display = 'block';
                     shouldSwitch = true;
                     break;
                 }
             }
-            else if (dir == "high"){
+            else if (dir == "high") {
                 if (Number(x.innerHTML) < Number(y.innerHTML)) {
-                    document.querySelector('.ti-arrow-up').style.display = 'none';
-                    document.querySelector('.ti-arrow-down').style.display = 'block';
+                    document.querySelector('.ti-arrow-up').style.display = 'block';
+                    document.querySelector('.ti-arrow-down').style.display = 'none';
                     shouldSwitch = true;
                     break;
                 }
@@ -437,5 +226,44 @@ const sortTable = e => {
     }
 
 }
+
+const deleteUser = e => {
+    var id = e.target.parentNode.parentNode.id;
+    console.log(id);
+    const delete1 = async (id) => {
+        await deleteDoc(doc(db, "users", id));
+    }
+    document.getElementById(id).remove();
+    delete1(id);
+}
+
+
+
+// const setUser = async () => {
+//     const users = collection(db, 'users');
+//     await setDoc(doc(users, "num5"), {
+//         active: "Không",
+//         name: "Hương Giang",
+//         revenue_today: 150000,
+//         work_today: "Sáng",
+//         info: {
+//             address: "Xuân Hưng",
+//             birth: "17/02/2002",
+//             day_off: 1,
+//             phone: "0327585534",
+//             salary: 1500000,
+//             work: "Nhân viên phục vụ"
+//         },
+//         shift: {
+//             mon: ["Không", "Không", "7h - 9h"],
+//             tue: ["Không", "Không", "7h - 9h"],
+//             wed: ["Không", "Không", "7h - 9h"],
+//             thu: ["Không", "Không", "7h - 9h"],
+//             fri: ["Không", "Không", "7h - 9h"],
+//             sat: ["Không", "Không", "7h - 9h"],
+//             sun: ["Không", "Không", "7h - 9h"]
+//         }
+//     })
+// }
 
 export default Employee;

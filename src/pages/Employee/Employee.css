@@ -1,25 +1,27 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 
-.employee{
+.employee {
     border-collapse: collapse;
     width: 95%;
     margin: 100px 10px 0 15px;
     font-size: 17px;
 }
-  
 
-.employee tr:hover{
+
+.employee tr:hover {
     background-color: #ddd;
     color: black;
 }
-  
 
-.employee th{
+
+
+
+.employee th {
     width: 25%;
     height: 50px;
     padding: 11px;
@@ -30,64 +32,71 @@
 }
 
 
-.employee td{
+.employee td {
     padding: 20px;
 }
 
 
-#number-2{
+#number-2 {
     display: none;
 }
 
 
-#back{
+#back {
     margin-top: 13px;
     width: 50px;
     height: 50px;
 }
 
 
-#back:hover{
+#back:hover {
     background-color: #ddd;
     color: #000;
 }
 
 
-.ti-angle-left{
+.ti-angle-left {
     float: left;
     margin-top: 16px;
     margin-left: 14px;
 }
 
 
-.header-his{
+.header-his {
     text-align: center;
 }
 
-
-#emp-his{
-    margin-top: 20px;
-}
-
-
-.history{
-    display: none;
-}
-
-
-.ti-arrow-up{
+.ti-arrow-up {
     display: none;
 }
 
 
 .ti-arrow-up,
-.ti-arrow-down{
+.ti-arrow-down,
+.ti-close {
     color: #000;
     margin-top: 5px;
 }
 
 .ti-arrow-up:hover,
-.ti-arrow-down:hover{
+.ti-arrow-down:hover {
     color: #fff;
 }
 
+div tbody tr {
+    display: none;
+    width: 100%;
+}
+
+#shift{
+    margin-top: 20px;
+}
+
+.employee tr:hover .ti-close {
+    color: #ddd;  
+}
+
+.ti-close:hover {
+    background-color: red;
+    color: #000;
+}
