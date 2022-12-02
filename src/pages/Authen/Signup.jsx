@@ -1,4 +1,4 @@
-import { faSignOut, faKitchenSet } from '@fortawesome/free-solid-svg-icons';
+import { faSignIn, faKitchenSet } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -55,8 +55,8 @@ const Signup = () => {
           <div className="flex flex-col py-2"></div>
           <div className="flex flex-col py-2"></div>
           <button onClick={handleSubmit} style={{alignSelf: "center"}}>
-            <FontAwesomeIcon style={{ marginRight: "10px" }} icon={faSignOut} />
-            | Sign In
+            <FontAwesomeIcon style={{ marginRight: "10px" }} icon={faSignIn} />
+            | Sign Up
           </button>
         </form>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Intro.css";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../../contexts/AuthContext";
@@ -33,8 +33,8 @@ function Intro() {
         <img src={require(`${userInfo.photo}`)} alt="" />
       </div>
       <div>{console.log(user.displayName)}</div>
-      <h1 style={{ marginBottom: "10px" }}>{userInfo && userInfo.name}</h1>
-      <h2 style={{ marginBottom: "10px" }}>
+      <h1 style={{ marginBottom: "20px", fontSize: "40px" }}>{userInfo && userInfo.name}</h1>
+      <h2 style={{ marginBottom: "20px" }}>
         {(userInfo && userInfo.role === "Người dùng") ? "" : "Chức vụ: "} {userInfo && userInfo.role}
       </h2>
       <button onClick={handleLogout}>

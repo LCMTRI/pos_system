@@ -1,6 +1,6 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import './Navbar.css';
-import { faUtensils, faKitchenSet } from "@fortawesome/free-solid-svg-icons";
+import { faKitchenSet } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { UserAuth } from "../../contexts/AuthContext";
 

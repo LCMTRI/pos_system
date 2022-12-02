@@ -12,11 +12,11 @@ const Menu = () => {
   const [card, setCard] = useState({ name: "", item: [] });
   
   const handle = (name) => {
-    if (card.name == name) {
+    if (card.name === name) {
       setCard({ name: "", item: [] });
     } else {
       for (var i = 0; i < categoryData.length; i++) {
-        if (categoryData[i].name == name) {
+        if (categoryData[i].name === name) {
           setCard(categoryData[i]);
           break;
         }
@@ -29,7 +29,7 @@ const Menu = () => {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={0.5}>
           {categoryData.map((element) =>
-            element.name == "" ? (
+            element.name === "" ? (
               <div></div>
             ) : (
               <Grid item xs={3}>

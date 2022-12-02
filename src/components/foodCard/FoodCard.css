@@ -100,12 +100,10 @@
 }
 
 .process>span {
-    line-height: 20px;
-    height: 25px;
+    line-height: 2rem;
+    height: 2rem;
     padding: 0 10px;
 }
-
-
 
 .food-name {
     z-index: 4;
@@ -191,7 +189,7 @@ i {
     z-index: 2;
 
     /* Size */
-    height: 0.5rem;
+    height: 0rem;
     width: 4rem;
 
     /* Hide the part of its children which is displayed outside */
