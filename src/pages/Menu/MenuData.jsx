@@ -8,240 +8,237 @@ export const categoryData = [
     item: [],
   },
   {
-    name: "Coffee",
+    name: "Cà phê",
     color: "#cfdddb",
     icon: faMugSaucer,
     item: [
       {
-        name: "Coffee 1",
+        name: "Cà phê đen",
+        price: 10000,
+      },
+      {
+        name: "Cà phê sữa",
         price: 12000,
       },
       {
-        name: "Coffee 2",
+        name: "Bạc xỉu",
         price: 12000,
       },
       {
-        name: "Coffee 3",
-        price: 12000,
+        name: "Cacao",
+        price: 17000,
       },
       {
-        name: "Coffee 4",
-        price: 12000,
+        name: "Capuchino",
+        price: 20000,
       },
       {
-        name: "Coffee 5",
-        price: 12000,
+        name: "Americano",
+        price: 15000,
       },
       {
-        name: "Coffee 6",
-        price: 12000,
+        name: "Latte",
+        price: 18000,
       },
       {
-        name: "Coffee 7",
-        price: 12000,
-      },
-      {
-        name: "Coffee 8",
-        price: 12000,
+        name: "Espresso",
+        price: 20000,
       },
     ],
   },
   {
-    name: "Tea",
+    name: "Trà",
     color: "#e4cdee",
     icon: faMugHot,
     item: [
       {
-        name: "Tea 1",
+        name: "Trà dâu",
         price: 23000,
       },
       {
-        name: "Tea 2",
+        name: "Trà chanh",
         price: 23000,
       },
       {
-        name: "Tea 3",
+        name: "Trà đào",
         price: 23000,
       },
       {
-        name: "Tea 4",
+        name: "Trà atiso",
         price: 23000,
       },
       {
-        name: "Tea 5",
+        name: "Trà gừng",
         price: 23000,
       },
       {
-        name: "Tea 6",
+        name: "Trà nhài",
         price: 23000,
       },
       {
-        name: "Tea 7",
+        name: "Trà lựu",
         price: 23000,
       },
     ],
   },
   {
-    name: "Milk tea",
+    name: "Trà sữa",
     color: "#c2dbe9",
     icon: faGlassWater,
     item: [
       {
-        name: "Milk tea 1",
+        name: "TS thường",
         price: 20000,
-        discount: "50%"
+        discount: "20%"
       },
       {
-        name: "Milk tea 2",
+        name: "TS dâu",
         price: 20000,
         is_best_seller: true,
       },
       {
-        name: "Milk tea 3",
+        name: "TS socola",
         price: 20000,
       },
       {
-        name: "Milk tea 4",
+        name: "TS nho",
         price: 20000,
       },
       {
-        name: "Milk tea 5",
+        name: "TS bạc hà",
         price: 20000,
       },
       {
-        name: "Milk tea 6",
+        name: "TS táo",
         price: 20000,
       },
       {
-        name: "Milk tea 7",
+        name: "TS caramel",
         price: 20000,
       },
       {
-        name: "Milk tea 8",
+        name: "TS đặc biệt",
         price: 20000,
       },
     ],
   },
   {
-    name: "Alcohol",
+    name: "Đồ uống cồn",
     color: "#c9caee",
     icon: faCocktail,
     item: [
       {
-        name: "Alcohol 1",
+        name: "Bia úp ngược",
         price: 30000,
       },
       {
-        name: "Alcohol 2",
+        name: "Mojito",
         price: 30000,
       },
       {
-        name: "Alcohol 3",
+        name: "Soju",
         price: 30000,
       },
       {
-        name: "Alcohol 4",
+        name: "Rum",
         price: 30000,
       },
       {
-        name: "Alcohol 5",
+        name: "Gin",
         price: 30000,
       },
       {
-        name: "Alcohol 6",
+        name: "Cocktail",
         price: 30000,
       },
     ],
   },
   {
-    name: "Breakfast",
+    name: "Điểm tâm",
     color: "#fac2d9",
     icon: faBurger,
     item: [
       {
-        name: "Breakfast 1",
+        name: "Trứng chảo",
         price: 24000,
       },
       {
-        name: "Breakfast 2",
+        name: "Bò né",
+        price: 24000,
+        is_best_seller: true
+      },
+      {
+        name: "Bánh mì",
         price: 24000,
       },
       {
-        name: "Breakfast 3",
+        name: "Hamburger",
         price: 24000,
       },
       {
-        name: "Breakfast 4",
+        name: "Bún bò",
         price: 24000,
       },
       {
-        name: "Breakfast 5",
+        name: "Phở",
         price: 24000,
       },
       {
-        name: "Breakfast 6",
-        price: 24000,
-      },
-      {
-        name: "Breakfast 7",
-        price: 24000,
-      },
-      {
-        name: "Breakfast 8",
+        name: "Mì trộn",
         price: 24000,
       },
     ],
   },
   {
-    name: "Desserts",
+    name: "Bánh",
     color: "#e6dade",
     icon: faCheese,
     item: [
       {
-        name: "Dessert 1",
+        name: "Croissant",
         price: 16000,
       },
       {
-        name: "Dessert 2",
+        name: "Tiramisu",
         price: 16000,
       },
       {
-        name: "Dessert 3",
+        name: "Cupcake",
         price: 16000,
       },
       {
-        name: "Dessert 4",
+        name: "Mousse",
         price: 16000,
       },
       {
-        name: "Dessert 5",
+        name: "Tart",
         price: 16000,
       },
     ],
   },
   {
-    name: "Snacks",
+    name: "Ăn vặt",
     color: "#f0c8cf",
     icon: faPizzaSlice,
     item: [
       {
-        name: "Snack 1",
+        name: "Bánh chén",
         price: 10000,
       },
       {
-        name: "Snack 2",
+        name: "Tokbokki",
         price: 10000,
       },
       {
-        name: "Snack 3",
+        name: "Kimbap",
         price: 10000,
       },
       {
-        name: "Snack 4",
+        name: "Phô mai que",
         price: 10000,
       },
       {
-        name: "Snack 5",
+        name: "Bánh tráng",
         price: 10000,
       },
     ],

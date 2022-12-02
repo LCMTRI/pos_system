@@ -15,6 +15,7 @@ function Receipt({ total }) {
   const { orderState, orderDispatch } = useContext(OrderContext);
   const [toggleState, setToggleState] = useState(1);
   const [openModal, setOpenModal] = useState(false);
+  const [totall, setTotall] = useState(0);
   const togglePayment = (index) => {
     setToggleState(index);
   };
@@ -28,6 +29,7 @@ function Receipt({ total }) {
       type: "CONFIRM_ORDER",
       payload: { data: orderState.data },
     });
+    setTotall(total)
     orderState.confirmData = [];
     setOpenModal(true)
   };
@@ -52,7 +54,7 @@ function Receipt({ total }) {
               >
                 <FontAwesomeIcon icon={faMoneyBill} />
               </div>
-              <span>Cash</span>
+              <span>Tiền mặt</span>
             </div>
             <div className="column">
               <div
@@ -63,7 +65,7 @@ function Receipt({ total }) {
               >
                 <FontAwesomeIcon icon={faCreditCard} />
               </div>
-              <span>Debit Card</span>
+              <span>Thẻ ATM</span>
             </div>
             <div className="column">
               <div
@@ -74,7 +76,7 @@ function Receipt({ total }) {
               >
                 <FontAwesomeIcon icon={faWallet} />
               </div>
-              <span>E-Wallet</span>
+              <span>Ví điện tử</span>
             </div>
           </div>
         </div>
@@ -83,7 +85,10 @@ function Receipt({ total }) {
           <Modal 
           open={openModal} 
           onClose={() => setOpenModal(false)} 
-          order={orderState.confirmData} />
+          order={orderState.confirmData}
+          total={totall}
+          payment={toggleState}
+          />
         </div>
       </div>
     </div>
