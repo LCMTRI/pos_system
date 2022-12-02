@@ -12,17 +12,27 @@
 }
 
 .img-container {
-    width: 330px;
-    height: 330px;
+    width: 315px;
+    height: 315px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #555;
+    background-color: white;
     margin-bottom: 30px;
     margin-top: 80px;
 }
 
 .intro-container h1 {
     font-size: 50px;
+}
+
+.intro-container button {
+    width: 20%;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 550;
+    color: #111315;
+    background-color: white;
 }

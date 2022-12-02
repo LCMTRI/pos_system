@@ -1,64 +1,67 @@
-import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../contexts/AuthContext"
-import { Link, useHistory } from "react-router-dom"
+import { faSignOut, faKitchenSet } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../../contexts/AuthContext";
+import { EmpData } from './AccountData';
 
-export default function Signup() {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const passwordConfirmRef = useRef()
-  const { signup } = useAuth()
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const history = useHistory()
+const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const { createUser } = UserAuth();
+  const navigate = useNavigate();
 
-  async function handleSubmit(e) {
-    e.preventDefault()
-
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passwords do not match")
-    }
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      setError("")
-      setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
-      history.push("/")
-    } catch {
-      setError("Failed to create an account")
+      await createUser(email, password, name);
+      EmpData.push({
+        name: name,
+        email: email,
+        role: "Người dùng",
+        photo: "./photo_user.jpg"
+      })
+      navigate("/");
+    } catch (e) {
+      console.log(e.message);
     }
-
-    setLoading(false)
-  }
+  };
 
   return (
-    <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Sign Up
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log In</Link>
+    <div className="sign-up-container">
+      <img src={require("./coffee-bar.jpg")} alt="" />
+      <div className="img-overlay"></div>
+      <div className="form-container">
+        <div>
+          <FontAwesomeIcon style={{ fontSize: "50px", marginBottom: "15px" }} icon={faKitchenSet} />
+          <h1 style={{marginBottom: "3rem", fontSize: "30px"}}>Sign up</h1>
+          <p style={{marginBottom: "1.5rem", fontSize: "1.1rem", textAlign: "left"}}>
+            Already have an account?{" "}
+            <Link to='/signin' style={{color: "#10A19D", fontWeight: "600", textDecoration: "underline"}}>
+              Sign in.
+            </Link>
+          </p>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="form-item">
+            <label className="py-2 font-medium">User Name</label>
+            <input onChange={(e) => setName(e.target.value)} type="name" />
+            <label className="py-2 font-medium">Email Address</label>
+            <input onChange={(e) => setEmail(e.target.value)} type="email" />
+            <label className="py-2 font-medium">Password</label>
+            <input onChange={(e) => setPassword(e.target.value)} type="password" />
+          </div>
+          <div className="flex flex-col py-2"></div>
+          <div className="flex flex-col py-2"></div>
+          <button onClick={handleSubmit} style={{alignSelf: "center"}}>
+            <FontAwesomeIcon style={{ marginRight: "10px" }} icon={faSignOut} />
+            | Sign In
+          </button>
+        </form>
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
+
+export default Signup;
