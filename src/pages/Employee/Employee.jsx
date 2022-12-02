@@ -56,10 +56,6 @@ const Employee = () => {
                         </header>
 
                         <div class="modal-body">
-                            <label for="revenue-today" class="modal-label">
-                                Doanh thu hôm nay: (<p className="edit-revenue-today">{user.revenue_today}</p>)
-                            </label>
-                            <input type="text" class="modal-input revenue-today-input"/>
 
                             <label for="work-today" class="modal-label">
                                 Buổi làm hôm nay: (<p className="edit-work-today">{user.work_today}</p>)
@@ -315,27 +311,24 @@ const updateUser = async (id, field, value) => {
     await updateDoc(userRef, {
         [field]: value
     });
+    
+
+    window.location.reload();
 }
 
 const confirmEdit = e => {
     var id = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
     var active = document.querySelector('#' + id + ' .edit-active').innerHTML;
-    var revenue = document.querySelector('#' + id + ' .edit-revenue-today').innerHTML;
     var work = document.querySelector('#' + id + ' .edit-work-today').innerHTML;
     var activeInput = document.querySelector('#' + id + ' .active-input').value;
-    var revenueInput = document.querySelector('#' + id + ' .revenue-today-input').value;
     var workInput = document.querySelector('#' + id + ' .work-today-input').value;
     var activeEdit = document.querySelector('#' + id + ' .active');
-    var revenueEdit = document.querySelector('#' + id + ' .revenue-today');
     var workEdit = document.querySelector('#' + id + ' .work-today');
     if (active != activeInput && activeInput != '') {
         updateUser(id, 'active', activeInput);
         activeEdit.innerHTML = activeInput;
     }
-    if (revenue != revenueInput && revenueInput != '') {
-        updateUser(id, 'revenue_today', parseInt(revenueInput));
-        revenueEdit.innerHTML = revenueInput;
-    }
+    
     if (work != workInput && workInput != '') {
         updateUser(id, 'work_today', workInput);
         workEdit.innerHTML = workInput;

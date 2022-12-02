@@ -18,3 +18,32 @@
 .show{
     display: block;
 }
+
+.modal-header-info{
+    height: 70px;
+
+}
+
+.modal-label-info{
+    margin-bottom: 0;
+}
+
+.modal-input-info{
+    margin-bottom: 12px;
+}
+
+.info-edit {
+    background: #CFDDDB;
+    border: none;
+    color: #000;
+    width: 100%;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 18px;
+    cursor: pointer;
+}
+
+
+.info-edit:hover {
+    opacity: 0.9;
+}
