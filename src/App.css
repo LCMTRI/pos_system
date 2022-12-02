@@ -15,13 +15,19 @@ body {
 
 #root {
   height: 100%;
-  display: flex;
   overflow: auto;
+}
+
+.app-container {
+  height: 100%;
+  display: flex;
+  max-width: 100%;
 }
 
 .mid-container {
   width: 57%;
   background-color: #111315;
+  overflow: hidden;
   padding: 1rem 0.5rem;
 }
 
@@ -29,4 +35,9 @@ body {
   flex: 1;
   overflow: hidden;
   padding: 1rem;
+}
+
+.right-container img {
+  width: 100%;
+  height: 100%;
 }
