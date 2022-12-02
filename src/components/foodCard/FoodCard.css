@@ -100,7 +100,7 @@
 }
 
 .process>span {
-    line-height: 0px;
+    line-height: 20px;
     height: 25px;
     padding: 0 10px;
 }

@@ -89,6 +89,7 @@ export const categoryData = [
       {
         name: "Milk tea 1",
         price: 20000,
+        discount: "50%"
       },
       {
         name: "Milk tea 2",
