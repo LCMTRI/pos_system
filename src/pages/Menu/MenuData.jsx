@@ -93,6 +93,7 @@ export const categoryData = [
       {
         name: "Milk tea 2",
         price: 20000,
+        is_best_seller: true,
       },
       {
         name: "Milk tea 3",

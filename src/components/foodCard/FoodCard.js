@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { OrderContext } from "../../contexts/OrderContext";
 import './FoodCard.css';
 
-function FoodCard({name, price, from}) {
+function FoodCard({name, price, from, isBestSeller}) {
     var [num, setNum] = useState(0)
     
     const { orderState, orderDispatch } = useContext(OrderContext);
@@ -51,9 +51,9 @@ function FoodCard({name, price, from}) {
   return (
 <div className='foodcard-container' >
     <div className='foodcard-body' ref={bodyRef}> 
-        <div class="corner-ribbon__inner">
+        {isBestSeller ? <div class="corner-ribbon__inner">
             <div class="corner-ribbon__ribbon">-Best-seller-</div>
-        </div>
+        </div> : null}
         <div className="process">
             <span>{from}</span>
             {/* <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
