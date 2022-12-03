@@ -7,7 +7,7 @@ export const EmpData = [
     },
     {
         email: "emp@gmail.com",
-        name: "Nguyễn Nhân Viên",
+        name: "Trần Quốc Dũng",
         photo: "./photo_emp.jpg",
         role: "Nhân viên"
     },

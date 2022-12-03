@@ -19,6 +19,7 @@ export const categoryData = [
       {
         name: "Cà phê sữa",
         price: 12000,
+        is_best_seller: true,
       },
       {
         name: "Bạc xỉu",
@@ -31,6 +32,7 @@ export const categoryData = [
       {
         name: "Capuchino",
         price: 20000,
+        is_best_seller: true,
       },
       {
         name: "Americano",
@@ -39,10 +41,12 @@ export const categoryData = [
       {
         name: "Latte",
         price: 18000,
+        discount: "20%"
       },
       {
         name: "Espresso",
         price: 20000,
+        is_best_seller: true,
       },
     ],
   },
@@ -54,6 +58,7 @@ export const categoryData = [
       {
         name: "Trà dâu",
         price: 23000,
+        discount: "10%"
       },
       {
         name: "Trà chanh",
@@ -94,7 +99,6 @@ export const categoryData = [
       {
         name: "TS dâu",
         price: 20000,
-        is_best_seller: true,
       },
       {
         name: "TS socola",
@@ -134,6 +138,7 @@ export const categoryData = [
       {
         name: "Mojito",
         price: 30000,
+        discount: "20%"
       },
       {
         name: "Soju",
@@ -165,7 +170,6 @@ export const categoryData = [
       {
         name: "Bò né",
         price: 24000,
-        is_best_seller: true
       },
       {
         name: "Bánh mì",
