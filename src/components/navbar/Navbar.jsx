@@ -12,7 +12,7 @@ export default function Navbar() {
         <FontAwesomeIcon icon={faKitchenSet} style={{fontSize: "38px"}} />
         <span>CosyPOS</span> 
       </Link>
-      {user.email === "admin@gmail.com" ? <ul>
+      {/* {user.email === "admin@gmail.com" ? <ul>
         <CustomLink to="/">Home</CustomLink>
         <CustomLink to="/dashboard">Dashboard</CustomLink>
         <CustomLink to="/employee">Employee</CustomLink>
@@ -23,13 +23,16 @@ export default function Navbar() {
       </ul> : <ul>
         <CustomLink to="/">Home</CustomLink>
         <CustomLink to="/menu">Menu</CustomLink>
-      </ul>}
-      {/* <ul>
-        <CustomLink to="/menu">Menu</CustomLink>
-        <CustomLink to="/reservation">Reservation</CustomLink>
-        <CustomLink to="/dashboard">Dashboard</CustomLink>
-        <CustomLink to="/employee">Employee</CustomLink>
-      </ul> */}
+      </ul>} */}
+      <ul>
+        <CustomLink to="/#">Menu</CustomLink>
+        <CustomLink to="/#">Reservation</CustomLink>
+        <CustomLink to="/#">Table Services</CustomLink>
+        <CustomLink to="/#">Delivery</CustomLink>
+      </ul>
+      <div className="copyright">
+        <span>&copy; 2022 by TriLeCaoMinh</span>
+      </div>
     </div>
   )
 }

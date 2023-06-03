@@ -21,15 +21,18 @@ const App = () => {
     return (
         <>
             <div className="app-container">
-                <Routes>
+                <Navbar />
+                <div className="mid-container"><Menu /></div>
+                <div className="right-container"><Menuside /></div>
+                {/* <Routes>
                     <Route path="/signin" element={<Signin />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path={"/*"} element={user ? (user['providerId'] ? <Navbar /> : null) : <Navigate to="/signin" />} />
-                </Routes>
+                </Routes> */}
 
-                <Routes>
+                {/* <Routes>
                     <Route path="/" element={user && user['providerId'] ? <div className="mid-container"><Intro /></div> : null} />
-                    <Route path="/menu" element={user && user['providerId'] ? <div className="mid-container"><Menu /></div> : null} />
+                    <Route path="/" element={user && user['providerId'] ? <div className="mid-container"><Menu /></div> : null} />
                     <Route path="/reservation" element={user && user['providerId'] ? <div className="mid-container"><Reservation /></div> : null} />
                     <Route path="/dashboard" element={user && user['providerId'] ? <div className="mid-container"><Dashboard /></div> : null} />
                     <Route path="/employee" element={user && user['providerId'] ? <div className="mid-container"><Employee /></div> : null} />
@@ -37,10 +40,10 @@ const App = () => {
 
                 <Routes>
                     <Route path="/" element={user && user['providerId'] ? <div className="right-container"><img src={require("./pages/Intro/sale.png")} alt="" /></div> : null} />
-                    <Route path="/menu" element={user && user['providerId'] ? <div className="right-container"><Menuside /></div> : null} />
+                    <Route path="/" element={user && user['providerId'] ? <div className="right-container"><Menuside /></div> : null} />
                     <Route path="/employee" element={user && user['providerId'] ? <div className="right-container"><Employeeside /></div> : null} />
                     <Route path="/*" element={null} />
-                </Routes>
+                </Routes> */}
             </div>
         </>
     );

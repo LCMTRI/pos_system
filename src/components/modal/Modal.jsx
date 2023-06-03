@@ -17,19 +17,19 @@ const Modal = ({ open, onClose, order, total, payment }) => {
         <div className="modalContent">
           {order.length === 0 ? (<div>
             <FontAwesomeIcon icon={faCircleXmark} style={{fontSize: "80px", color: "#e63946", marginBottom: "30px"}} />
-            <h2>Đơn hàng đang bị trống!</h2>
+            <h2>Receipt is empty!</h2>
           </div>) : (<div>
             <FontAwesomeIcon icon={faCheckCircle} style={{fontSize: "80px", color: "#a7c957", marginBottom: "30px"}} />
-            <h2>Đặt đơn hàng thành công!</h2>
+            <h2>Order success!</h2>
             <hr style={{background: "#2B2D2E", color: "#2B2D2E", borderColor: "#2B2D2E", height: "1.5px", margin: "5px 0px 9px 0px"}} />
-            <h3 style={{textAlign: "center", marginBottom: "10px"}}>--- Hóa đơn ---</h3>
+            <h3 style={{textAlign: "center", marginBottom: "10px"}}>--- Receipt ---</h3>
             <table style={{borderCollapse: "collapse", borderBottom: "2px solid black"}}>
               <tr style={{borderBottom: "1px solid black"}}>
-                <th>STT</th>
-                <th style={{width: "110px"}}>Tên món</th>
-                <th>SL</th>
-                <th style={{width: "90px"}}>Đơn giá</th>
-                <th style={{width: "90px"}}>Thành tiền</th>
+                <th>No.</th>
+                <th style={{width: "110px"}}>Name</th>
+                <th>Amt</th>
+                <th style={{width: "90px"}}>Unit</th>
+                <th style={{width: "90px"}}>Accumulate</th>
               </tr>
               {order.map((e, i) => (
                 <tr>
@@ -41,10 +41,10 @@ const Modal = ({ open, onClose, order, total, payment }) => {
                 </tr>
               ))}
             </table>
-            <h4 style={{textAlign: "left", marginTop: "10px"}}>Tổng cộng: {total.toLocaleString()} VNĐ</h4>
-            <h4 style={{textAlign: "left", marginBottom: "20px"}}>Phương thức thanh toán: {payment === 0 ? "Tiền mặt" : payment === 1 ? "Thẻ ATM" : "Ví điện tử"}</h4>
+            <h4 style={{textAlign: "left", marginTop: "10px"}}>Total: {total.toLocaleString()} VNĐ</h4>
+            <h4 style={{textAlign: "left", marginBottom: "20px"}}>Payment method: {payment === 0 ? "Cash" : payment === 1 ? "Debit Card" : "E-Wallet"}</h4>
             <hr style={{background: "#2B2D2E", color: "#2B2D2E", borderColor: "#2B2D2E", height: "1.5px", margin: "5px 0px 9px 0px"}} />
-            <h3>Cảm ơn đã sử dụng CosyPOS.<br />Hẹn gặp lại quý khách!</h3>
+            <h3>Thank you for using CosyPOS.<br />See you again!</h3>
           </div>)}
         </div>
       </div>

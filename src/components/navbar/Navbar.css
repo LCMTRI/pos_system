@@ -62,3 +62,9 @@
     background-color: #3a3a3a;
     color: white;
 }
+
+.nav .copyright {
+    font-size: small;
+    margin-left: 24px;
+    margin-top: 280px;
+}

@@ -8,7 +8,7 @@ export const categoryData = [
     item: [],
   },
   {
-    name: "Cà phê",
+    name: "Coffee",
     color: "#cfdddb",
     icon: faMugSaucer,
     item: [
@@ -26,7 +26,7 @@ export const categoryData = [
         price: 12000,
       },
       {
-        name: "Cacao",
+        name: "Cacoa",
         price: 17000,
       },
       {
@@ -51,88 +51,88 @@ export const categoryData = [
     ],
   },
   {
-    name: "Trà",
+    name: "Tea",
     color: "#e4cdee",
     icon: faMugHot,
     item: [
       {
-        name: "Trà dâu",
+        name: "Strawberry Tea",
         price: 23000,
         discount: "10%"
       },
       {
-        name: "Trà chanh",
+        name: "Lemon Tea",
         price: 23000,
       },
       {
-        name: "Trà đào",
+        name: "Peach Tea",
         price: 23000,
       },
       {
-        name: "Trà atiso",
+        name: "Atiso Tea",
         price: 23000,
       },
       {
-        name: "Trà gừng",
+        name: "Ginger Tea",
         price: 23000,
       },
       {
-        name: "Trà nhài",
+        name: "Jasmine Tea",
         price: 23000,
       },
       {
-        name: "Trà lựu",
+        name: "Guava Tea",
         price: 23000,
       },
     ],
   },
   {
-    name: "Trà sữa",
+    name: "Milk Tea",
     color: "#c2dbe9",
     icon: faGlassWater,
     item: [
       {
-        name: "TS thường",
+        name: "Traditional",
         price: 20000,
         discount: "20%"
       },
       {
-        name: "TS dâu",
+        name: "Egg-cream",
         price: 20000,
       },
       {
-        name: "TS socola",
+        name: "Cheese-cream",
         price: 20000,
       },
       {
-        name: "TS nho",
+        name: "Chocolate",
         price: 20000,
       },
       {
-        name: "TS bạc hà",
+        name: "Mint",
         price: 20000,
       },
       {
-        name: "TS táo",
+        name: "Apple",
         price: 20000,
       },
       {
-        name: "TS caramel",
+        name: "Caramel",
         price: 20000,
       },
       {
-        name: "TS đặc biệt",
+        name: "Cosy Special",
         price: 20000,
       },
     ],
   },
   {
-    name: "Đồ uống cồn",
+    name: "Alcohol",
     color: "#c9caee",
     icon: faCocktail,
     item: [
       {
-        name: "Bia úp ngược",
+        name: "Beer",
         price: 30000,
       },
       {
@@ -159,16 +159,16 @@ export const categoryData = [
     ],
   },
   {
-    name: "Điểm tâm",
+    name: "Breakfast",
     color: "#fac2d9",
     icon: faBurger,
     item: [
       {
-        name: "Trứng chảo",
+        name: "Hotdog",
         price: 24000,
       },
       {
-        name: "Bò né",
+        name: "Beef steak",
         price: 24000,
       },
       {
@@ -188,13 +188,13 @@ export const categoryData = [
         price: 24000,
       },
       {
-        name: "Mì trộn",
+        name: "Pasta",
         price: 24000,
       },
     ],
   },
   {
-    name: "Bánh",
+    name: "Bakery",
     color: "#e6dade",
     icon: faCheese,
     item: [
@@ -221,14 +221,10 @@ export const categoryData = [
     ],
   },
   {
-    name: "Ăn vặt",
+    name: "Snack",
     color: "#f0c8cf",
     icon: faPizzaSlice,
     item: [
-      {
-        name: "Bánh chén",
-        price: 10000,
-      },
       {
         name: "Tokbokki",
         price: 10000,
@@ -242,7 +238,7 @@ export const categoryData = [
         price: 10000,
       },
       {
-        name: "Bánh tráng",
+        name: "French Fries",
         price: 10000,
       },
     ],

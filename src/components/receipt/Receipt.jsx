@@ -54,7 +54,7 @@ function Receipt({ total }) {
               >
                 <FontAwesomeIcon icon={faMoneyBill} />
               </div>
-              <span>Tiền mặt</span>
+              <span>Cash</span>
             </div>
             <div className="column">
               <div
@@ -65,7 +65,7 @@ function Receipt({ total }) {
               >
                 <FontAwesomeIcon icon={faCreditCard} />
               </div>
-              <span>Thẻ ATM</span>
+              <span>Debit Card</span>
             </div>
             <div className="column">
               <div
@@ -76,7 +76,7 @@ function Receipt({ total }) {
               >
                 <FontAwesomeIcon icon={faWallet} />
               </div>
-              <span>Ví điện tử</span>
+              <span>E-Wallet</span>
             </div>
           </div>
         </div>
