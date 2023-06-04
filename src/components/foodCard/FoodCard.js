@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { OrderContext } from "../../contexts/OrderContext";
+import 'font-awesome/css/font-awesome.min.css';
 import './FoodCard.css';
 
 function FoodCard({name, price, from, isBestSeller}) {
