@@ -31,18 +31,6 @@
     color: transparent;
 }
 
-.foodcard-body .icons {
-    background-size: 200% 100%;
-    z-index: 5;
-    background-image: linear-gradient(to right, black 50%, white 50%);
-    -webkit-background-clip: text, border-box;
-    background-clip: text, border-box;
-    background-repeat: no-repeat;
-    background-position: 100% top, 100% top;
-    transition: background-position 0.4s;
-    color: transparent;
-}
-
 
 .foodcard-body.transform-text-and-icon>div {
     background-position: 0% top, 0% top;
