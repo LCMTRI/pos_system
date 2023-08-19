@@ -48,7 +48,8 @@
     display: flex;
 }
 
-.food-name {
+.item-name {
+	margin-left: 1.3em;
     width: 120px;
 }
 

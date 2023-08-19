@@ -41,7 +41,7 @@ export const categoryData = [
       {
         name: "Latte",
         price: 18000,
-        discount: "20%"
+        discount: 20,
       },
       {
         name: "Espresso",
@@ -58,7 +58,7 @@ export const categoryData = [
       {
         name: "Strawberry Tea",
         price: 23000,
-        discount: "10%"
+        discount: 10,
       },
       {
         name: "Lemon Tea",
@@ -94,7 +94,7 @@ export const categoryData = [
       {
         name: "Traditional",
         price: 20000,
-        discount: "20%"
+        discount: 20,
       },
       {
         name: "Egg-cream",
@@ -138,7 +138,7 @@ export const categoryData = [
       {
         name: "Mojito",
         price: 30000,
-        discount: "20%"
+        discount: 20,
       },
       {
         name: "Soju",

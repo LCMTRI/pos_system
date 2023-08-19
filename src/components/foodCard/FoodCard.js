@@ -3,14 +3,15 @@ import { OrderContext } from "../../contexts/OrderContext";
 // import '../../../node_modules/font-awesome/css/font-awesome.min.css'; 
 import './FoodCard.css';
 
-function FoodCard({name, price, from, isBestSeller}) {
+function FoodCard({backgroundColor, name, price, from, isBestSeller}) {
     var [num, setNum] = useState(0)
     
     const { orderState, orderDispatch } = useContext(OrderContext);
-    const bodyRef = useRef(null)
+    const bodyRef = useRef(null)	
 
+	document.querySelector("div").style.setProperty('--bg-color', backgroundColor)
+	
     useEffect(() => {
-        
         if (num > 0 && !bodyRef.current.classList.contains("transform-background")) {
             bodyRef.current.classList.toggle("transform-background")
             bodyRef.current.classList.toggle("transform-text-and-icon")
@@ -25,18 +26,19 @@ function FoodCard({name, price, from, isBestSeller}) {
             num = 0
             setNum(0)
         }
-        
+        else {
+					let item = orderState.data[orderState.data.findIndex(v => v.name === name)]
+					setNum(item.no)
+				}
     }, [orderState.data.findIndex(v => v.name === name)])
      
 
     const handleIns = () => {
         setNum(++num)
         if (num === 1) 
-            orderDispatch({type: 'ADD', payload: {name: name, no: num, price: price}})
+            orderDispatch({type: 'ADD', payload: {name: name, no: num, price: price, discount: from}})
         else 
-            orderDispatch({type: 'INS', payload: {name: name, no: num, price: price}})
-
-
+            orderDispatch({type: 'INS', payload: {name: name, no: num, price: price, discount: from}})
     }
 
     const handleDes = () => {
@@ -44,19 +46,19 @@ function FoodCard({name, price, from, isBestSeller}) {
         if (num === 0) 
             orderDispatch({type: 'DELETE', payload: {name: name}})
         else 
-            orderDispatch({type: 'DES', payload: {name: name, no: num, price: price}})
+            orderDispatch({type: 'DES', payload: {name: name, no: num, price: price, discount: from}})
     }
 
 
 
   return (
 <div className='foodcard-container' >
-    <div className='foodcard-body' ref={bodyRef}> 
+    <div className='foodcard-body' bg-color={backgroundColor} ref={bodyRef}> 
         {isBestSeller ? <div class="corner-ribbon__inner">
             <div class="corner-ribbon__ribbon">-Best-seller-</div>
         </div> : null}
         <div className="process">
-            <span>{from}</span>
+            <span>{from ? "Discount " + from.toLocaleString() + "%" : ""}</span>
             {/* <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
             <span>{to}</span> */}
         </div>

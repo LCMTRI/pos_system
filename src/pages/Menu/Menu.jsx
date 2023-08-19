@@ -62,7 +62,7 @@ const Menu = () => {
             ) :
               card.item.map((element) => (
                 <Grid item xs={3}>
-                  <Foodcard name={element.name} price={element.price} from={element.discount ? "Discount " + element.discount : ""} isBestSeller={element.is_best_seller} />
+                  <Foodcard backgroundColor={card.color} name={element.name} price={element.price} from={element.discount} isBestSeller={element.is_best_seller} />
                 </Grid>
               ))
           }
