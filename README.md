@@ -1,3 +1,7 @@
+# About the project
+
+The web application is a Point of sale (POS) system, aimed to replicate the design of [CosyPOS](https://cdn.dribbble.com/userupload/3261380/file/original-101891014eea22769a2d3dfcb03f735a.mp4) from [dribbble.com](https://dribbble.com).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
